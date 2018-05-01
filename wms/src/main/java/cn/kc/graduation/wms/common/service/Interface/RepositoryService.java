@@ -23,7 +23,7 @@ public interface RepositoryService {
      * @param repositoryId 仓库ID
      * @return 结果的一个Map，其中： key为 data 的代表记录数据；key 为 total 代表结果记录的数量
      */
-    Map<String, Object> selectById(Integer repositoryId) throws RepositoryManageServiceException;
+    Map<String, Object> selectById(Long repositoryId) throws RepositoryManageServiceException;
 
     /**
      * 返回指定 repository address 的仓库记录
@@ -90,7 +90,7 @@ public interface RepositoryService {
      * @param repositoryId 仓库ID
      * @return 返回一个boolean值，值为true代表更新成功，否则代表失败
      */
-    boolean deleteRepository(Integer repositoryId) throws RepositoryManageServiceException;
+    boolean deleteRepository(Long repositoryId) throws RepositoryManageServiceException;
 
     /**
      * 从文件中导入仓库信息

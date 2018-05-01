@@ -1,6 +1,6 @@
 package cn.kc.graduation.wms.dao;
 
-import com.ken.wms.domain.Storage;
+import cn.kc.graduation.wms.domain.Storage;
 import org.apache.ibatis.annotations.Param;
 
 
@@ -9,7 +9,6 @@ import java.util.List;
 /**
  * 库存信息映射器
 
- *
  */
 public interface StorageMapper {
 
@@ -17,7 +16,7 @@ public interface StorageMapper {
 	 * 选择所有的库存信息
 	 * @return 返回所有的库存信息
 	 */
-	List<Storage> selectAllAndRepositoryID(@Param("repositoryID") Integer repositoryID);
+	List<Storage> selectAllAndRepositoryID(@Param("repositoryID") Long repositoryID);
 	
 	/**
 	 * 选择指定货物ID和仓库ID的库存信息
@@ -25,8 +24,8 @@ public interface StorageMapper {
 	 * @param repositoryID 库存ID
 	 * @return 返回所有指定货物ID和仓库ID的库存信息
 	 */
-	List<Storage> selectByGoodsIDAndRepositoryID(@Param("goodsID") Integer goodsID,
-												 @Param("repositoryID") Integer repositoryID);
+	List<Storage> selectByGoodsIDAndRepositoryID(@Param("goodsID") Long goodsID,
+												 @Param("repositoryID") Long repositoryID);
 	
 	/**
 	 * 选择指定货物名的库存信息
@@ -34,7 +33,7 @@ public interface StorageMapper {
 	 * @return 返回所有指定货物名称的库存信息
 	 */
 	List<Storage> selectByGoodsNameAndRepositoryID(@Param("goodsName") String goodsName,
-												   @Param("repositoryID") Integer repositoryID);
+												   @Param("repositoryID") Long repositoryID);
 	
 	/**
 	 * 选择指定货物类型的库存信息
@@ -42,7 +41,7 @@ public interface StorageMapper {
 	 * @return 返回所有指定货物类型的库存信息
 	 */
 	List<Storage> selectByGoodsTypeAndRepositoryID(@Param("goodsType") String goodsType,
-												   @Param("repositoryID") Integer repositoryID);
+												   @Param("repositoryID") Long repositoryID);
 	
 	/**
 	 * 更新库存信息
@@ -67,18 +66,18 @@ public interface StorageMapper {
 	 * 删除指定货物ID的库存信息
 	 * @param goodsID 货物ID
 	 */
-	void deleteByGoodsID(Integer goodsID);
+	void deleteByGoodsID(Long goodsID);
 	
 	/**
 	 * 删除指定仓库的库存信息
 	 * @param repositoryID 仓库ID
 	 */
-	void deleteByRepositoryID(Integer repositoryID);
+	void deleteByRepositoryID(Long repositoryID);
 	
 	/**
 	 * 删除指定仓库中的指定货物的库存信息
 	 * @param goodsID 货物ID
 	 * @param repositoryID 仓库ID
 	 */
-	void deleteByRepositoryIDAndGoodsID(@Param("goodsID") Integer goodsID, @Param("repositoryID") Integer repositoryID);
+	void deleteByRepositoryIDAndGoodsID(@Param("goodsID") Long goodsID, @Param("repositoryID") Long repositoryID);
 }

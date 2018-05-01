@@ -6,7 +6,7 @@
     <properties resource="mysql.properties" />
 
     <typeAliases>
-        <typeAlias type="cn.kc.graduation.utils.DruidDataSourceFactory"
+        <typeAlias type="cn.kc.graduation.rss.utils.DruidDataSourceFactory"
                    alias="DRUID" />
     </typeAliases>
 
@@ -28,5 +28,8 @@
     <!-- mybatis的mapper文件，每个xml配置文件对应一个接口 -->
     <mappers>
         <mapper resource="mapper/userMapper.xml" />
+        <mapper resource="mapper/stockInMapper.xml"/>
+        <mapper resource="mapper/stockOutMapper.xml"/>
+
     </mappers>
 </configuration>

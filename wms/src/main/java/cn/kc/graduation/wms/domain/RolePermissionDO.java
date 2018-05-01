@@ -4,9 +4,6 @@ import java.io.Serializable;
 
 /**
  * URL 的角色角色权限信息
- *
-
- * @since 2017/2/26
  */
 public class RolePermissionDO implements Serializable {
 

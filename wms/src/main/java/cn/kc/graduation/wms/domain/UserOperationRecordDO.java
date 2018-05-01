@@ -5,21 +5,18 @@ import java.util.Date;
 
 /**
  * 用户操作记录DO
- *
-
- * @since 2017/4/9.
  */
 public class UserOperationRecordDO implements Serializable {
 
     /**
      * 记录ID
      */
-    private Integer id;
+    private Long id;
 
     /**
      * 执行操作的用户ID
      */
-    private Integer userID;
+    private Long userID;
 
     /**
      * 执行操作的用户名
@@ -41,11 +38,11 @@ public class UserOperationRecordDO implements Serializable {
      */
     private String operationResult;
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public void setUserID(Integer userID) {
+    public void setUserID(Long userID) {
         this.userID = userID;
     }
 
@@ -65,11 +62,11 @@ public class UserOperationRecordDO implements Serializable {
         this.operationResult = operationResult;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public Integer getUserID() {
+    public Long getUserID() {
         return userID;
     }
 

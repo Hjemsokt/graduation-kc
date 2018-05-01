@@ -1,6 +1,6 @@
 package cn.kc.graduation.wms.dao;
 
-import com.ken.wms.domain.RoleDO;
+import cn.kc.graduation.wms.domain.RoleDO;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -8,7 +8,6 @@ import java.util.List;
 /**
  * 用户角色权限映射器
 
- *
  */
 public interface UserPermissionMapper {
 
@@ -17,18 +16,18 @@ public interface UserPermissionMapper {
      * @param userID 用户ID
      * @param roleID 角色ID
      */
-	void insert(@Param("userID") Integer userID, @Param("roleID") Integer roleID);
+	void insert(@Param("userID") Long userID, @Param("roleID") Long roleID);
 
     /**
      * 删除指定用户的角色
      * @param userID 用户ID
      */
-	void deleteByUserID(Integer userID);
+	void deleteByUserID(Long userID);
 
     /**
      * 获取指定 userID 对应用户拥有的角色
      * @param userID 用户ID
      * @return 返回 userID 指定用户的角色
      */
-    List<RoleDO> selectUserRole(Integer userID);
+    List<RoleDO> selectUserRole(Long userID);
 }

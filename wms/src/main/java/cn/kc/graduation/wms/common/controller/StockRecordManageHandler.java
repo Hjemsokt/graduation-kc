@@ -4,12 +4,12 @@ import cn.kc.graduation.wms.common.service.Interface.StockRecordManageService;
 import cn.kc.graduation.wms.common.util.Response;
 import cn.kc.graduation.wms.common.util.ResponseFactory;
 import cn.kc.graduation.wms.exception.StockRecordManageServiceException;
-import com.ken.wms.common.service.Interface.StockRecordManageService;
-import com.ken.wms.common.util.Response;
-import com.ken.wms.common.util.ResponseFactory;
-import com.ken.wms.domain.StockRecordDTO;
-import com.ken.wms.domain.UserInfoDTO;
-import com.ken.wms.exception.StockRecordManageServiceException;
+import cn.kc.graduation.wms.common.service.Interface.StockRecordManageService;
+import cn.kc.graduation.wms.common.util.Response;
+import cn.kc.graduation.wms.common.util.ResponseFactory;
+import cn.kc.graduation.wms.domain.StockRecordDTO;
+import cn.kc.graduation.wms.domain.UserInfoDTO;
+import cn.kc.graduation.wms.exception.StockRecordManageServiceException;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
@@ -29,8 +29,6 @@ import java.util.Map;
 /**
  * 商品出入库管理请求Handler
  *
-
- * @since 017/4/5.
  */
 @Controller
 @RequestMapping(value = "stockRecordManage")
@@ -51,8 +49,8 @@ public class StockRecordManageHandler {
     @RequestMapping(value = "stockOut", method = RequestMethod.POST)
     public
     @ResponseBody
-    Map<String, Object> stockOut(@RequestParam("customerID") Integer customerID,
-                                 @RequestParam("goodsID") Integer goodsID,
+    Map<String, Object> stockOut(@RequestParam("customerID") Long customerID,
+                                 @RequestParam("goodsID") Long goodsID,
                                  @RequestParam(value = "repositoryID", required = false) String repositoryIDStr,
                                  @RequestParam("number") long number) throws StockRecordManageServiceException {
         // 初始化 Response
@@ -60,12 +58,12 @@ public class StockRecordManageHandler {
         String result = Response.RESPONSE_RESULT_ERROR;
         boolean authorizeCheck = true;
         boolean argumentCheck = true;
-        Integer repositoryID = null;
+        Long repositoryID = null;
 
         // 参数检查
         if (repositoryIDStr != null) {
             if (StringUtils.isNumeric(repositoryIDStr)) {
-                repositoryID = Integer.valueOf(repositoryIDStr);
+                repositoryID = Long.valueOf(repositoryIDStr);
             } else {
                 argumentCheck = false;
                 responseContent.setResponseMsg("request argument error");
@@ -77,7 +75,7 @@ public class StockRecordManageHandler {
         Session session = currentUser.getSession();
         UserInfoDTO userInfo = (UserInfoDTO) session.getAttribute("userInfo");
         String personInCharge = userInfo == null ? "none" : userInfo.getUserName();
-        Integer repositoryIDBelong = userInfo == null ? -1 : userInfo.getRepositoryBelong();
+        Long repositoryIDBelong = userInfo == null ? -1 : userInfo.getRepositoryBelong();
 
         // 设置非管理员请求的仓库ID
         if (!currentUser.hasRole("systemAdmin")) {
@@ -111,8 +109,8 @@ public class StockRecordManageHandler {
     @RequestMapping(value = "stockIn", method = RequestMethod.POST)
     public
     @ResponseBody
-    Map<String, Object> stockIn(@RequestParam("supplierID") Integer supplierID,
-                                @RequestParam("goodsID") Integer goodsID,
+    Map<String, Object> stockIn(@RequestParam("supplierID") Long supplierID,
+                                @RequestParam("goodsID") Long goodsID,
                                 @RequestParam(value = "repositoryID", required = false) String repositoryIDStr,
                                 @RequestParam("number") long number) throws StockRecordManageServiceException {
         // 初始化 Response
@@ -120,12 +118,12 @@ public class StockRecordManageHandler {
         String result = Response.RESPONSE_RESULT_ERROR;
         boolean authorizeCheck = true;
         boolean argumentCheck = true;
-        Integer repositoryID = null;
+        Long repositoryID = null;
 
         // 参数检查
         if (repositoryIDStr != null) {
             if (StringUtils.isNumeric(repositoryIDStr)) {
-                repositoryID = Integer.valueOf(repositoryIDStr);
+                repositoryID = Long.valueOf(repositoryIDStr);
             } else {
                 argumentCheck = false;
                 responseContent.setResponseMsg("request argument error");
@@ -137,7 +135,7 @@ public class StockRecordManageHandler {
         Session session = currentUser.getSession();
         UserInfoDTO userInfo = (UserInfoDTO) session.getAttribute("userInfo");
         String personInCharge = userInfo == null ? "none" : userInfo.getUserName();
-        Integer repositoryIDBelong = userInfo == null ? -1 : userInfo.getRepositoryBelong();
+        Long repositoryIDBelong = userInfo == null ? -1 : userInfo.getRepositoryBelong();
 
         // 设置非管理员请求的仓库ID
         if (!currentUser.hasRole("systemAdmin")) {
@@ -193,9 +191,9 @@ public class StockRecordManageHandler {
         boolean repositoryIDCheck = (StringUtils.isEmpty(repositoryIDStr) || StringUtils.isNumeric(repositoryIDStr));
 
         if (startDateFormatCheck && endDateFormatCheck && repositoryIDCheck) {
-            Integer repositoryID = -1;
+            Long repositoryID = -1l;
             if (StringUtils.isNumeric(repositoryIDStr)) {
-                repositoryID = Integer.valueOf(repositoryIDStr);
+                repositoryID = Long.valueOf(repositoryIDStr);
             }
 
             // 转到 Service 执行查询

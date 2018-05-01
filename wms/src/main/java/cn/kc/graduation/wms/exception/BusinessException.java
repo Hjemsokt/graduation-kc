@@ -2,9 +2,6 @@ package cn.kc.graduation.wms.exception;
 
 /**
  * 业务层异常的父类
- *
-
- * @since 2017/3/8.
  */
 public class BusinessException extends Exception{
 

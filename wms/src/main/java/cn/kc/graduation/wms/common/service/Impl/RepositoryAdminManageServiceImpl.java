@@ -9,16 +9,10 @@ import cn.kc.graduation.wms.security.service.Interface.UserInfoService;
 import cn.kc.graduation.wms.util.aop.UserOperation;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.ken.wms.common.service.Interface.RepositoryAdminManageService;
-import com.ken.wms.common.util.EJConvertor;
-import com.ken.wms.common.util.FileUtil;
-import com.ken.wms.dao.RepositoryAdminMapper;
-import com.ken.wms.domain.RepositoryAdmin;
-import com.ken.wms.domain.UserInfoDTO;
-import com.ken.wms.exception.RepositoryAdminManageServiceException;
-import com.ken.wms.exception.UserInfoServiceException;
-import com.ken.wms.security.service.Interface.UserInfoService;
-import com.ken.wms.util.aop.UserOperation;
+import cn.kc.graduation.wms.common.service.Interface.RepositoryAdminManageService;
+
+import cn.kc.graduation.wms.domain.RepositoryAdmin;
+import cn.kc.graduation.wms.domain.UserInfoDTO;
 import org.apache.ibatis.exceptions.PersistenceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,7 +44,7 @@ public class RepositoryAdminManageServiceImpl implements RepositoryAdminManageSe
      * @return 结果的一个Map，其中： key为 data 的代表记录数据；key 为 total 代表结果记录的数量
      */
     @Override
-    public Map<String, Object> selectByID(Integer repositoryAdminID) throws RepositoryAdminManageServiceException {
+    public Map<String, Object> selectByID(Long repositoryAdminID) throws RepositoryAdminManageServiceException {
         // 初始化结果集
         Map<String, Object> resultSet = new HashMap<>();
         List<RepositoryAdmin> repositoryAdmins = new ArrayList<>();
@@ -199,7 +193,7 @@ public class RepositoryAdminManageServiceImpl implements RepositoryAdminManageSe
                     repositoryAdminMapper.insert(repositoryAdmin);
 
                     // 获取插入数据后返回的用户ID
-                    Integer userID = repositoryAdmin.getId();
+                    Long userID = repositoryAdmin.getId();
                     if (userID == null)
                         return false;
 
@@ -264,7 +258,7 @@ public class RepositoryAdminManageServiceImpl implements RepositoryAdminManageSe
      */
     @UserOperation(value = "删除仓库管理员信息")
     @Override
-    public boolean deleteRepositoryAdmin(Integer repositoryAdminID) throws RepositoryAdminManageServiceException {
+    public boolean deleteRepositoryAdmin(Long repositoryAdminID) throws RepositoryAdminManageServiceException {
 
         try {
             // 判断是否已指派仓库
@@ -294,7 +288,7 @@ public class RepositoryAdminManageServiceImpl implements RepositoryAdminManageSe
      */
     @UserOperation(value = "指派仓库管理员")
     @Override
-    public boolean assignRepository(Integer repositoryAdminID, Integer repositoryID) throws RepositoryAdminManageServiceException {
+    public boolean assignRepository(Long repositoryAdminID, Long repositoryID) throws RepositoryAdminManageServiceException {
 
         try {
             RepositoryAdmin repositoryAdmin = repositoryAdminMapper.selectByID(repositoryAdminID);
@@ -387,7 +381,7 @@ public class RepositoryAdminManageServiceImpl implements RepositoryAdminManageSe
      * @return 返回一个Map，
      */
     @Override
-    public Map<String, Object> selectByRepositoryID(Integer repositoryID) throws RepositoryAdminManageServiceException {
+    public Map<String, Object> selectByRepositoryID(Long repositoryID) throws RepositoryAdminManageServiceException {
         // 初始化结果集
         Map<String, Object> resultSet = new HashMap<>();
         List<RepositoryAdmin> repositoryAdmins = new ArrayList<>();

@@ -1,9 +1,9 @@
 package cn.kc.graduation.wms.util.aop;
 
 import cn.kc.graduation.wms.exception.SystemLogServiceException;
-import com.ken.wms.common.service.Interface.SystemLogService;
-import com.ken.wms.domain.UserInfoDTO;
-import com.ken.wms.exception.SystemLogServiceException;
+import cn.kc.graduation.wms.common.service.Interface.SystemLogService;
+import cn.kc.graduation.wms.domain.UserInfoDTO;
+import cn.kc.graduation.wms.exception.SystemLogServiceException;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
@@ -12,9 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * 用户操作日志记录
- *
 
- * @since 2017/4/8.
  */
 public class UserOperationLogging {
 
@@ -48,7 +46,7 @@ public class UserOperationLogging {
             Subject currentSubject = SecurityUtils.getSubject();
             Session session = currentSubject.getSession();
             UserInfoDTO userInfo = (UserInfoDTO) session.getAttribute("userInfo");
-            Integer userID = userInfo.getUserID();
+            Long userID = userInfo.getUserID();
             String userName = userInfo.getUserName();
 
             // 插入记录

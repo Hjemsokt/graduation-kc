@@ -2,9 +2,6 @@ package cn.kc.graduation.wms.exception;
 
 /**
  * AccountServiceException异常
- *
-
- * @since 2017/3/8.
  */
 public class UserAccountServiceException extends BusinessException {
 

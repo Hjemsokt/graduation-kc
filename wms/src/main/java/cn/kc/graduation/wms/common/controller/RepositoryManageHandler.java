@@ -4,11 +4,11 @@ import cn.kc.graduation.wms.common.service.Interface.RepositoryService;
 import cn.kc.graduation.wms.common.util.Response;
 import cn.kc.graduation.wms.common.util.ResponseFactory;
 import cn.kc.graduation.wms.exception.RepositoryManageServiceException;
-import com.ken.wms.common.service.Interface.RepositoryService;
-import com.ken.wms.common.util.Response;
-import com.ken.wms.common.util.ResponseFactory;
-import com.ken.wms.domain.Repository;
-import com.ken.wms.exception.RepositoryManageServiceException;
+import cn.kc.graduation.wms.common.service.Interface.RepositoryService;
+import cn.kc.graduation.wms.common.util.Response;
+import cn.kc.graduation.wms.common.util.ResponseFactory;
+import cn.kc.graduation.wms.domain.Repository;
+import cn.kc.graduation.wms.exception.RepositoryManageServiceException;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -56,7 +56,7 @@ public class RepositoryManageHandler {
         switch (searchType) {
             case SEARCH_BY_ID:
                 if (StringUtils.isNumeric(keyword)) {
-                    queryResult = repositoryService.selectById(Integer.valueOf(keyword));
+                    queryResult = repositoryService.selectById(Long.valueOf(keyword));
                 }
                 break;
             case SEARCH_BY_ADDRESS:
@@ -168,7 +168,7 @@ public class RepositoryManageHandler {
     @RequestMapping(value = "getRepositoryInfo", method = RequestMethod.GET)
     public
     @ResponseBody
-    Map<String, Object> getRepositoryInfo(@RequestParam("repositoryID") Integer repositoryID) throws RepositoryManageServiceException {
+    Map<String, Object> getRepositoryInfo(@RequestParam("repositoryID") Long repositoryID) throws RepositoryManageServiceException {
         // 初始化 Response
         Response responseContent = ResponseFactory.newInstance();
         String result = Response.RESPONSE_RESULT_ERROR;
@@ -220,7 +220,7 @@ public class RepositoryManageHandler {
     @RequestMapping(value = "deleteRepository", method = RequestMethod.GET)
     public
     @ResponseBody
-    Map<String, Object> deleteRepository(@RequestParam("repositoryID") Integer repositoryID) throws RepositoryManageServiceException {
+    Map<String, Object> deleteRepository(@RequestParam("repositoryID") Long repositoryID) throws RepositoryManageServiceException {
         // 初始化 Response
         Response responseContent = ResponseFactory.newInstance();
 

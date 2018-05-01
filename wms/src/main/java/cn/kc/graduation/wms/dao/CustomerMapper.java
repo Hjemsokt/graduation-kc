@@ -1,13 +1,12 @@
 package cn.kc.graduation.wms.dao;
 
-import com.ken.wms.domain.Customer;
+
+import cn.kc.graduation.wms.domain.Customer;
 
 import java.util.List;
 
 /**
  * 客户信息 Customer 映射器
-
- *
  */
 public interface CustomerMapper {
 
@@ -22,7 +21,7 @@ public interface CustomerMapper {
 	 * @param id Customer的ID
 	 * @return 返回指定ID对应的Customer
 	 */
-	Customer selectById(Integer id);
+	Customer selectById(Long id);
 	
 	/**
 	 * 选择指定 Customer name 的 customer
@@ -63,7 +62,7 @@ public interface CustomerMapper {
 	 * 删除指定 id 的 customer
 	 * @param id customer ID
 	 */
-	void deleteById(Integer id);
+	void deleteById(Long id);
 	
 	/**
 	 * 删除指定 customerName 的 customer

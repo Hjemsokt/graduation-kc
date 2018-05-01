@@ -4,15 +4,13 @@ import java.io.Serializable;
 
 /**
  * 用户账户信息(数据传输对象)
-
- * @since 2017/2/26.
  */
 public class UserInfoDO implements Serializable {
 
     /**
      * 用户ID
      */
-    private Integer userID;
+    private Long userID;
 
     /**
      * 用户名
@@ -45,7 +43,7 @@ public class UserInfoDO implements Serializable {
         this.firstLogin = firstLogin;
     }
 
-    public Integer getUserID() {
+    public Long getUserID() {
         return userID;
     }
 
@@ -53,7 +51,7 @@ public class UserInfoDO implements Serializable {
         return password;
     }
 
-    public void setUserID(Integer userID) {
+    public void setUserID(Long userID) {
         this.userID = userID;
     }
 

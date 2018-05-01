@@ -1,15 +1,14 @@
 package cn.kc.graduation.wms.security.service.Interface;
 
-import com.ken.wms.domain.UserInfoDTO;
-import com.ken.wms.exception.UserInfoServiceException;
+
+import cn.kc.graduation.wms.domain.UserInfoDTO;
+import cn.kc.graduation.wms.exception.UserInfoServiceException;
 
 import java.util.List;
 import java.util.Set;
 
 /**
  * 用户账户信息 service
-
- * @since 2017/2/26.
  */
 public interface UserInfoService {
 
@@ -18,7 +17,7 @@ public interface UserInfoService {
      * @param userID 用户ID
      * @return 返回用户账户信息
      */
-    UserInfoDTO getUserInfo(Integer userID) throws UserInfoServiceException;
+    UserInfoDTO getUserInfo(Long userID) throws UserInfoServiceException;
 
     /**
      * 获取指定 userName 对应的用户账户信息
@@ -43,7 +42,7 @@ public interface UserInfoService {
      * 删除指定 userID 的用户账户信息
      * @param userID 指定的用户ID
      */
-    void deleteUserInfo(Integer userID) throws UserInfoServiceException;
+    void deleteUserInfo(Long userID) throws UserInfoServiceException;
 
     /**
      * 添加一条用户账户信息
@@ -56,5 +55,5 @@ public interface UserInfoService {
      * @param userID 用户 ID
      * @return 返回一个保存有用户角色的 Set，若该用户没有任何角色，则返回一个不包含任何元素的 Set
      */
-    Set<String> getUserRoles(Integer userID) throws UserInfoServiceException;
+    Set<String> getUserRoles(Long userID) throws UserInfoServiceException;
 }

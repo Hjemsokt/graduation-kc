@@ -1,6 +1,6 @@
 package cn.kc.graduation.wms.dao;
 
-import com.ken.wms.domain.AccessRecordDO;
+import cn.kc.graduation.wms.domain.AccessRecordDO;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.Date;
@@ -8,9 +8,7 @@ import java.util.List;
 
 /**
  * 用户登入登出记录因映射器
- *
 
- * @since 2017/3/5.
  */
 public interface AccessRecordMapper {
 
@@ -30,8 +28,8 @@ public interface AccessRecordMapper {
      * @param endDate    记录的结束日期
      * @return 返回所有符合条件的记录
      */
-    List<AccessRecordDO> selectAccessRecords(@Param("userID") Integer userID,
-                                             @Param("accessType") String accessType,
-                                             @Param("startDate") Date startDate,
-                                             @Param("endDate") Date endDate);
+    List<AccessRecordDO> selectAccessRecords(@Param("userID") Long userID,
+											 @Param("accessType") String accessType,
+											 @Param("startDate") Date startDate,
+											 @Param("endDate") Date endDate);
 }

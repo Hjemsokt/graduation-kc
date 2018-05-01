@@ -1,7 +1,6 @@
 package cn.kc.graduation.wms.dao;
 
 import cn.kc.graduation.wms.domain.UserOperationRecordDO;
-import com.ken.wms.domain.UserOperationRecordDO;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.Date;
@@ -9,9 +8,6 @@ import java.util.List;
 
 /**
  * 用户操作记录Mapper
- *
-
- * @since 2017/4/9.
  */
 public interface UserOperationRecordMapper {
 
@@ -23,7 +19,7 @@ public interface UserOperationRecordMapper {
      * @param endDate   记录的结束日期
      * @return 返回所有符合条件的记录
      */
-    List<UserOperationRecordDO> selectUserOperationRecord(@Param("userID") Integer userID,
+    List<UserOperationRecordDO> selectUserOperationRecord(@Param("userID") Long userID,
 														  @Param("startDate") Date startDate,
 														  @Param("endDate") Date endDate);
 

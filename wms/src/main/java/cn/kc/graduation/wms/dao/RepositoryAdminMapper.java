@@ -1,13 +1,12 @@
 package cn.kc.graduation.wms.dao;
 
-import com.ken.wms.domain.RepositoryAdmin;
+
+import cn.kc.graduation.wms.domain.RepositoryAdmin;
 
 import java.util.List;
 
 /**
  * RepositoryAdmin 映射器
-
- *
  */
 public interface RepositoryAdminMapper {
 
@@ -16,7 +15,7 @@ public interface RepositoryAdminMapper {
 	 * @param id 仓库管理员ID
 	 * @return 返回指定 ID 的仓库管理员信息
 	 */
-	RepositoryAdmin selectByID(Integer id);
+	RepositoryAdmin selectByID(Long id);
 	
 	/**
 	 * 选择指定 name 的仓库管理员信息。
@@ -37,7 +36,7 @@ public interface RepositoryAdminMapper {
 	 * @param repositoryID 指派的仓库ID
 	 * @return 返回已指派指定 repositoryID 的仓库管理员信息
 	 */
-	RepositoryAdmin selectByRepositoryID(Integer repositoryID);
+	RepositoryAdmin selectByRepositoryID(Long repositoryID);
 	
 	/**
 	 * 插入一条仓库管理员信息
@@ -61,5 +60,5 @@ public interface RepositoryAdminMapper {
 	 * 删除指定 ID 的仓库管理员信息
 	 * @param id 仓库管理员 ID
 	 */
-	void deleteByID(Integer id);
+	void deleteByID(Long id);
 }

@@ -8,15 +8,15 @@ import cn.kc.graduation.wms.exception.SupplierManageServiceException;
 import cn.kc.graduation.wms.util.aop.UserOperation;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.ken.wms.common.service.Interface.SupplierManageService;
-import com.ken.wms.common.util.EJConvertor;
-import com.ken.wms.common.util.FileUtil;
-import com.ken.wms.dao.StockInMapper;
-import com.ken.wms.dao.SupplierMapper;
-import com.ken.wms.domain.StockInDO;
-import com.ken.wms.domain.Supplier;
-import com.ken.wms.exception.SupplierManageServiceException;
-import com.ken.wms.util.aop.UserOperation;
+import cn.kc.graduation.wms.common.service.Interface.SupplierManageService;
+import cn.kc.graduation.wms.common.util.EJConvertor;
+import cn.kc.graduation.wms.common.util.FileUtil;
+import cn.kc.graduation.wms.dao.StockInMapper;
+import cn.kc.graduation.wms.dao.SupplierMapper;
+import cn.kc.graduation.wms.domain.StockInDO;
+import cn.kc.graduation.wms.domain.Supplier;
+import cn.kc.graduation.wms.exception.SupplierManageServiceException;
+import cn.kc.graduation.wms.util.aop.UserOperation;
 import org.apache.ibatis.exceptions.PersistenceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,8 +31,6 @@ import java.util.Map;
 
 /**
  * 供应商信息管理 service 实现类
- *
-
  */
 @Service
 public class SupplierManageServiceImpl implements SupplierManageService {
@@ -51,7 +49,7 @@ public class SupplierManageServiceImpl implements SupplierManageService {
      * @return 结果的一个Map，其中： key为 data 的代表记录数据；key 为 total 代表结果记录的数量
      */
     @Override
-    public Map<String, Object> selectById(Integer supplierId) throws SupplierManageServiceException {
+    public Map<String, Object> selectById(Long supplierId) throws SupplierManageServiceException {
         // 初始化结果集
         Map<String, Object> resultSet = new HashMap<>();
         List<Supplier> suppliers = new ArrayList<>();
@@ -266,7 +264,7 @@ public class SupplierManageServiceImpl implements SupplierManageService {
      */
     @UserOperation(value = "删除供应商信息")
     @Override
-    public boolean deleteSupplier(Integer supplierId) {
+    public boolean deleteSupplier(Long supplierId) {
 
         // 查询该供应商是否有入库记录
         List<StockInDO> records = stockInMapper.selectBySupplierId(supplierId);

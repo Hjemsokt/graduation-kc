@@ -1,19 +1,14 @@
 package cn.kc.graduation.wms.common.service.Impl;
 
+import cn.kc.graduation.wms.common.service.Interface.RepositoryService;
 import cn.kc.graduation.wms.common.util.EJConvertor;
 import cn.kc.graduation.wms.common.util.FileUtil;
 import cn.kc.graduation.wms.dao.*;
+import cn.kc.graduation.wms.domain.*;
 import cn.kc.graduation.wms.exception.RepositoryManageServiceException;
 import cn.kc.graduation.wms.util.aop.UserOperation;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.ken.wms.common.service.Interface.RepositoryService;
-import com.ken.wms.common.util.EJConvertor;
-import com.ken.wms.common.util.FileUtil;
-import com.ken.wms.dao.*;
-import com.ken.wms.domain.*;
-import com.ken.wms.exception.RepositoryManageServiceException;
-import com.ken.wms.util.aop.UserOperation;
 import org.apache.ibatis.exceptions.PersistenceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,8 +23,6 @@ import java.util.Map;
 
 /**
  * 仓库信息管理 service 实现类
- *
-
  */
 @Service
 public class RepositoryManageServiceImpl implements RepositoryService {
@@ -54,7 +47,7 @@ public class RepositoryManageServiceImpl implements RepositoryService {
      * @return 结果的一个Map，其中： key为 data 的代表记录数据；key 为 total 代表结果记录的数量
      */
     @Override
-    public Map<String, Object> selectById(Integer repositoryId) throws RepositoryManageServiceException {
+    public Map<String, Object> selectById(Long repositoryId) throws RepositoryManageServiceException {
         // 初始化結果集
         Map<String, Object> resultSet = new HashMap<>();
         List<Repository> repositories = new ArrayList<>();
@@ -261,7 +254,7 @@ public class RepositoryManageServiceImpl implements RepositoryService {
      */
     @UserOperation(value = "删除仓库信息")
     @Override
-    public boolean deleteRepository(Integer repositoryId) throws RepositoryManageServiceException {
+    public boolean deleteRepository(Long repositoryId) throws RepositoryManageServiceException {
 
         try {
             // 检查是否存在出库记录

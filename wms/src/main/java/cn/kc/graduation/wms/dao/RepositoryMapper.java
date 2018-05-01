@@ -1,13 +1,13 @@
 package cn.kc.graduation.wms.dao;
 
-import com.ken.wms.domain.Repository;
+
+import cn.kc.graduation.wms.domain.Repository;
 
 import java.util.List;
 
 /**
  * Repository 映射器
 
- *
  */
 public interface RepositoryMapper {
 
@@ -28,7 +28,7 @@ public interface RepositoryMapper {
 	 * @param repositoryID 仓库ID
 	 * @return 返回指定的Repository
 	 */
-	Repository selectByID(Integer repositoryID);
+	Repository selectByID(Long repositoryID);
 	
 	/**
 	 * 选择指定 repository Address 的 repository 记录
@@ -59,5 +59,5 @@ public interface RepositoryMapper {
 	 * 删除指定 Repository ID 的 Repository 记录
 	 * @param repositoryID 仓库ID
 	 */
-	void deleteByID(Integer repositoryID);
+	void deleteByID(Long repositoryID);
 }

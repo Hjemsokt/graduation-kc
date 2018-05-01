@@ -4,21 +4,18 @@ import java.io.Serializable;
 
 /**
  * 用户操作记录DTO
- *
-
- * @since 2017/4/9.
  */
 public class UserOperationRecordDTO implements Serializable {
 
     /**
      * 操作记录ID
      */
-    private Integer id;
+    private Long id;
 
     /**
      * 执行操作的用户ID
      */
-    private Integer userID;
+    private Long userID;
 
     /**
      * 执行操作的用户名
@@ -40,11 +37,11 @@ public class UserOperationRecordDTO implements Serializable {
      */
     private String operationResult;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public Integer getUserID() {
+    public Long getUserID() {
         return userID;
     }
 
@@ -64,11 +61,11 @@ public class UserOperationRecordDTO implements Serializable {
         return operationResult;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public void setUserID(Integer userID) {
+    public void setUserID(Long userID) {
         this.userID = userID;
     }
 

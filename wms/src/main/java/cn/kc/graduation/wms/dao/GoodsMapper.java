@@ -1,14 +1,14 @@
 package cn.kc.graduation.wms.dao;
 
 
-import com.ken.wms.domain.Goods;
+
+import cn.kc.graduation.wms.domain.Goods;
 
 import java.util.List;
 
 /**
  * 货物信息映射器
 
- *
  */
 public interface GoodsMapper {
 
@@ -23,7 +23,7 @@ public interface GoodsMapper {
 	 * @param id 货物的ID
 	 * @return 返回执行ID对应的Goods
 	 */
-	Goods selectById(Integer id);
+	Goods selectById(Long id);
 	
 	/**
 	 * 选择指定 Goods name 的 Goods
@@ -63,7 +63,7 @@ public interface GoodsMapper {
 	 * 删除指定 id 的 goods
 	 * @param id 货物ID
 	 */
-	void deleteById(Integer id);
+	void deleteById(Long id);
 	
 	/**
 	 * 删除指定 goods name 的 goods

@@ -3,9 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.ken.wms.dao.GoodsMapper">
+<mapper namespace="cn.kc.graduation.wms.dao.GoodsMapper">
 
-	<resultMap type="com.ken.wms.domain.Goods" id="goods">
+	<resultMap type="cn.kc.graduation.wms.domain.Goods" id="goods">
 		<id property="id" column="GOOD_ID"/>
 		<result property="name" column="GOOD_NAME"/>
 		<result property="type" column="GOOD_RYPE"/>

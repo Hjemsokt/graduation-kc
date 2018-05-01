@@ -7,9 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * 页面重定向
- *
 
- * @since 2017/2/27.
  */
 @RequestMapping("/")
 @Controller

@@ -2,9 +2,6 @@ package cn.kc.graduation.wms.exception;
 
 /**
  * UserInfoService异常
- *
-
- * @since 2017/3/8.
  */
 public class UserInfoServiceException extends BusinessException {
 

@@ -26,7 +26,7 @@ public class MD5Util {
 
                 StringBuilder hexString = new StringBuilder();
                 for (byte aByteData : byteData) {
-                    String hex = Integer.toHexString(0xff & aByteData);
+                    String hex = Long.toHexString(0xff & aByteData);
                     if (hex.length() == 1)
                         hexString.append('0');
                     hexString.append(hex);

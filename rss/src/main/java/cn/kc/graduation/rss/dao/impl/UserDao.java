@@ -10,7 +10,7 @@ import java.util.List;
 
 public class UserDao implements IUserDao {
 
-	private static final String namespace = "wms.dao.IUserDao.";
+	private static final String namespace = "cn.kc.graduation.wms.dao.IUserDao.";
 	private static final SqlSession session = MyBatisUtil.getSession();
 
 	@Override

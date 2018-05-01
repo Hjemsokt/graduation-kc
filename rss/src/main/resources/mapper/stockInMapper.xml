@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="cn.kc.graduation.rss.dao.IStockInDao">
+
+    <!-- 结果映射 -->
+    <resultMap type="cn.kc.graduation.rss.model.Storage" id="storage">
+        <id property="goodsID" column="goodsID"/>
+        <result property="goodsName" column="goodsName"/>
+        <result property="goodsSize" column="goodsSize"/>
+        <result property="goodsType" column="goodsType"/>
+        <result property="goodsValue" column="goodsValue"/>
+        <result property="repositoryID" column="repositoryID"/>
+        <result property="number" column="number"/>
+        <!--
+        <association property="goodsInfo" javaType="cn.kc.graduation.Goods" resultMap="goods"/>
+         -->
+    </resultMap>
+
+
+    <select id="selectByGoodsIDAndRepositoryID" resultMap="storage"
+            parameterType="map">
+        select
+        r.REPO_ID as repositoryID,
+        s.RECORD_NUMBER as number,
+        g.GOOD_ID as goodsID,
+        g.GOOD_NAME as goodsName,
+        g.GOOD_RYPE as goodsType,
+        g.GOOD_SIZE as goodsSize,
+        g.GOOD_VALUE as goodsValue
+        from
+        wms_record_storage s,wms_respository r, wms_goods g
+        where
+        s.RECORD_GOODID = g.GOOD_ID and
+        s.RECORD_REPOSITORY = r.REPO_ID and
+        g.GOOD_ID = #{goodsID}
+        <if test="repositoryID > 0">
+            and r.REPO_ID = #{repositoryID}
+        </if>
+    </select>
+
+    <select id="selectGoodsById" resultType="cn.kc.graduation.rss.model.Goods">
+		select * from wms_goods g
+		where
+			g.GOOD_ID = #{id}
+	</select>
+
+    <insert id="insert_goods" parameterType="cn.kc.graduation.rss.model.Goods">
+		insert into wms_goods(GOOD_ID, GOOD_NAME,GOOD_RYPE,GOOD_SIZE,GOOD_VALUE)
+		values (#{id},#{name},#{type},#{size},#{value})
+	</insert>
+
+    <insert id="insert_stockIn"
+            parameterType="cn.kc.graduation.rss.model.StockInDO">
+		insert into wms_record_in(RECORD_SUPPLIERID,RECORD_GOODID,RECORD_NUMBER,RECORD_TIME,RECORD_PERSON,RECORD_REPOSITORYID)
+		values(#{supplierID},#{goodID},#{number},#{time},#{personInCharge},#{repositoryID})
+	</insert>
+
+    <update id="update_storage">
+		update
+			wms_record_storage
+		set
+			RECORD_GOODID = #{goodsID},
+			RECORD_REPOSITORY = #{repositoryID},
+			RECORD_NUMBER = #{number}
+		where
+			RECORD_GOODID = #{goodsID} and
+			RECORD_REPOSITORY = #{repositoryID}
+	</update>
+
+    <insert id="insert_storage">
+		insert into wms_record_storage
+		(
+			RECORD_GOODID,
+			RECORD_REPOSITORY,
+			RECORD_NUMBER
+		)
+		values
+		(
+			#{goodsID},
+			#{repositoryID},
+			#{number}
+		)
+	</insert>
+</mapper>
+

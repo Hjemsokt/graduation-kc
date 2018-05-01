@@ -22,7 +22,7 @@ public interface CustomerManageService {
      * @param customerId 客户ID
      * @return 结果的一个Map，其中： key为 data 的代表记录数据；key 为 total 代表结果记录的数量
      */
-    Map<String, Object> selectById(Integer customerId) throws CustomerManageServiceException;
+    Map<String, Object> selectById(Long customerId) throws CustomerManageServiceException;
 
     /**
      * 返回指定 customer name 的客户记录
@@ -82,7 +82,7 @@ public interface CustomerManageService {
      * @param customerId 客户ID
      * @return 返回一个boolean值，值为true代表更新成功，否则代表失败
      */
-    boolean deleteCustomer(Integer customerId) throws CustomerManageServiceException;
+    boolean deleteCustomer(Long customerId) throws CustomerManageServiceException;
 
     /**
      * 从文件中导入客户信息

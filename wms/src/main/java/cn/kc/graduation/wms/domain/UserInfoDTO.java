@@ -6,16 +6,13 @@ import java.util.List;
 
 /**
  * 用户账户信息（数据传输对象）
- *
-
- * @since 2017/2/26.
  */
 public class UserInfoDTO implements Serializable {
 
     /**
      * 用户ID
      */
-    private Integer userID;
+    private Long userID;
 
     /**
      * 用户名
@@ -45,7 +42,7 @@ public class UserInfoDTO implements Serializable {
     /**
      * 用户指派的仓库
      */
-    private Integer repositoryBelong;
+    private Long repositoryBelong;
 
     /**
      * 用户账户属性的 getter 以及 setter
@@ -63,7 +60,7 @@ public class UserInfoDTO implements Serializable {
         return role;
     }
 
-    public Integer getUserID() {
+    public Long getUserID() {
         return userID;
     }
 
@@ -71,7 +68,7 @@ public class UserInfoDTO implements Serializable {
         return password;
     }
 
-    public void setUserID(Integer userID) {
+    public void setUserID(Long userID) {
         this.userID = userID;
     }
 
@@ -91,11 +88,11 @@ public class UserInfoDTO implements Serializable {
         return firstLogin;
     }
 
-    public Integer getRepositoryBelong() {
+    public Long getRepositoryBelong() {
         return repositoryBelong;
     }
 
-    public void setRepositoryBelong(Integer repositoryBelong) {
+    public void setRepositoryBelong(Long repositoryBelong) {
         this.repositoryBelong = repositoryBelong;
     }
 

@@ -1,14 +1,12 @@
 package cn.kc.graduation.wms.dao;
 
-import com.ken.wms.domain.UserInfoDO;
+
+import cn.kc.graduation.wms.domain.UserInfoDO;
 
 import java.util.List;
 
 /**
  * 用户账户信息 Mapper
- *
-
- * @since 2017/2/26.
  */
 public interface UserInfoMapper {
 
@@ -18,7 +16,7 @@ public interface UserInfoMapper {
      * @param userID 用户ID
      * @return 返回指定 userID 对应的 user 信息
      */
-    UserInfoDO selectByUserID(Integer userID);
+    UserInfoDO selectByUserID(Long userID);
 
     /**
      * 选择指定 userName 的 user 信息
@@ -48,7 +46,7 @@ public interface UserInfoMapper {
      *
      * @param id 用户ID
      */
-    void deleteById(Integer id);
+    void deleteById(Long id);
 
     /**
      * 插入一个 user 对象信息

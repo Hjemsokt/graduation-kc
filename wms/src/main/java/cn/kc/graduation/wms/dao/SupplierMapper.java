@@ -1,13 +1,13 @@
 package cn.kc.graduation.wms.dao;
 
-import com.ken.wms.domain.Supplier;
+
+import cn.kc.graduation.wms.domain.Supplier;
 
 import java.util.List;
 
 /**
  * Supplier 映射器
 
- *
  */
 public interface SupplierMapper {
 
@@ -22,7 +22,7 @@ public interface SupplierMapper {
 	 * @param id 供应商ID
 	 * @return 返回指定ID对应的供应商
 	 */
-	Supplier selectById(Integer id);
+	Supplier selectById(Long id);
 	
 	/**
 	 * 选择指定 supplier name 的 Supplier
@@ -63,7 +63,7 @@ public interface SupplierMapper {
 	 * 删除指定 id 的Supplier
 	 * @param id 供应商ID
 	 */
-	void deleteById(Integer id);
+	void deleteById(Long id);
 	
 	/**
 	 * 删除指定 supplierName 的 Supplier

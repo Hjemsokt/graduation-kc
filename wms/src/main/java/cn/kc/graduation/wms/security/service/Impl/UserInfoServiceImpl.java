@@ -1,16 +1,15 @@
 package cn.kc.graduation.wms.security.service.Impl;
 
+import cn.kc.graduation.wms.dao.RolesMapper;
+import cn.kc.graduation.wms.dao.UserInfoMapper;
+import cn.kc.graduation.wms.dao.UserPermissionMapper;
+import cn.kc.graduation.wms.domain.RoleDO;
+import cn.kc.graduation.wms.domain.UserInfoDO;
+import cn.kc.graduation.wms.domain.UserInfoDTO;
+import cn.kc.graduation.wms.exception.UserInfoServiceException;
 import cn.kc.graduation.wms.security.service.Interface.UserInfoService;
 import cn.kc.graduation.wms.security.util.MD5Util;
-import com.ken.wms.dao.RolesMapper;
-import com.ken.wms.dao.UserInfoMapper;
-import com.ken.wms.dao.UserPermissionMapper;
-import com.ken.wms.domain.RoleDO;
-import com.ken.wms.domain.UserInfoDO;
-import com.ken.wms.domain.UserInfoDTO;
-import com.ken.wms.exception.UserInfoServiceException;
-import com.ken.wms.security.service.Interface.UserInfoService;
-import com.ken.wms.security.util.MD5Util;
+
 import org.apache.ibatis.exceptions.PersistenceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,9 +22,6 @@ import java.util.Set;
 
 /**
  * 用户账户信息 service 实现类
- *
-
- * @since 2017/2/26.
  */
 @Service
 public class UserInfoServiceImpl implements UserInfoService {
@@ -46,7 +42,7 @@ public class UserInfoServiceImpl implements UserInfoService {
      * @return 返回用户账户信息
      */
     @Override
-    public UserInfoDTO getUserInfo(Integer userID) throws UserInfoServiceException {
+    public UserInfoDTO getUserInfo(Long userID) throws UserInfoServiceException {
         if (userID == null)
             return null;
 
@@ -128,7 +124,7 @@ public class UserInfoServiceImpl implements UserInfoService {
         if (userInfoDTO != null) {
             try {
                 // 更新 UserDo 对象信息
-                Integer userID = userInfoDTO.getUserID();
+                Long userID = userInfoDTO.getUserID();
                 String userName = userInfoDTO.getUserName();
                 String password = userInfoDTO.getPassword();
                 if (userID != null && userName != null && password != null) {
@@ -156,7 +152,7 @@ public class UserInfoServiceImpl implements UserInfoService {
      * @param userID 指定的用户ID
      */
     @Override
-    public void deleteUserInfo(Integer userID) throws UserInfoServiceException {
+    public void deleteUserInfo(Long userID) throws UserInfoServiceException {
         if (userID == null)
             return;
 
@@ -183,7 +179,7 @@ public class UserInfoServiceImpl implements UserInfoService {
             return false;
 
         // 检查数据是否有效
-        Integer userID = userInfoDTO.getUserID();
+        Long userID = userInfoDTO.getUserID();
         String userName = userInfoDTO.getUserName();
         String password = userInfoDTO.getPassword();
         if (userName == null || password == null)
@@ -206,7 +202,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 
             // 获取用户角色信息
             List<String> roles = userInfoDTO.getRole();
-            Integer roleID;
+            Long roleID;
 
             // 持久化用户角色信息
             for (String role : roles) {
@@ -254,7 +250,7 @@ public class UserInfoServiceImpl implements UserInfoService {
      * @return 返回一个保存有用户角色的 Set，若该用户没有任何角色，则返回一个不包含任何元素的 Set
      */
     @Override
-    public Set<String> getUserRoles(Integer userID) throws UserInfoServiceException {
+    public Set<String> getUserRoles(Long userID) throws UserInfoServiceException {
         // 获取用户信息
         UserInfoDTO userInfo = getUserInfo(userID);
 

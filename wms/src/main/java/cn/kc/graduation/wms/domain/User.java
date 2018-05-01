@@ -4,20 +4,18 @@ import java.io.Serializable;
 
 /**
  * 系统的使用用户
-
- *
  */
 public class User implements Serializable {
 
-	private Integer id;// 用户ID
+	private Long id;// 用户ID
 	private String userName;// 用户名
 	private String password;// 用户密码
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

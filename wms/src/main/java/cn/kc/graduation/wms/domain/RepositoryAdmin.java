@@ -6,32 +6,31 @@ import java.sql.Date;
 /**
  * 仓库管理员信息
 
- *
  */
 public class RepositoryAdmin implements Serializable {
 
-	private Integer id;// 仓库管理员ID
+	private Long id;// 仓库管理员ID
 	private String name;// 姓名
 	private String sex;// 性别
 	private String tel;// 联系电话
 	private String address;// 地址
 	private Date birth;// 出生日期
-	private Integer repositoryBelongID;// 所属仓库ID
+	private Long repositoryBelongID;// 所属仓库ID
 
 	
-	public Integer getRepositoryBelongID() {
+	public Long getRepositoryBelongID() {
 		return repositoryBelongID;
 	}
 
-	public void setRepositoryBelongID(Integer repositoryBelongID) {
+	public void setRepositoryBelongID(Long repositoryBelongID) {
 		this.repositoryBelongID = repositoryBelongID;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

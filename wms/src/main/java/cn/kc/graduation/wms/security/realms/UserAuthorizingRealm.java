@@ -1,10 +1,10 @@
 package cn.kc.graduation.wms.security.realms;
 
+import cn.kc.graduation.wms.domain.UserInfoDTO;
+import cn.kc.graduation.wms.exception.UserInfoServiceException;
+import cn.kc.graduation.wms.security.service.Interface.UserInfoService;
 import cn.kc.graduation.wms.security.util.MD5Util;
-import com.ken.wms.domain.UserInfoDTO;
-import com.ken.wms.exception.UserInfoServiceException;
-import com.ken.wms.security.service.Interface.UserInfoService;
-import com.ken.wms.security.util.MD5Util;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
@@ -21,9 +21,6 @@ import java.util.Set;
 
 /**
  * 用户的认证与授权
- *
-
- * @since 2017/2/26.
  */
 public class UserAuthorizingRealm extends AuthorizingRealm {
 
@@ -74,7 +71,7 @@ public class UserAuthorizingRealm extends AuthorizingRealm {
             if (!StringUtils.isNumeric(principal))
                 throw new AuthenticationException();
 
-            Integer userID = Integer.valueOf(principal);
+            Long userID = Long.valueOf(principal);
             UserInfoDTO userInfoDTO = userInfoService.getUserInfo(userID);
 
             if (userInfoDTO != null) {

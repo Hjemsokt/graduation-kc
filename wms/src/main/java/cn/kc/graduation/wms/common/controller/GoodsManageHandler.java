@@ -3,13 +3,12 @@ package cn.kc.graduation.wms.common.controller;
 import cn.kc.graduation.wms.common.service.Interface.GoodsManageService;
 import cn.kc.graduation.wms.common.util.Response;
 import cn.kc.graduation.wms.common.util.ResponseFactory;
+import cn.kc.graduation.wms.domain.Supplier;
 import cn.kc.graduation.wms.exception.GoodsManageServiceException;
-import com.ken.wms.common.service.Interface.GoodsManageService;
-import com.ken.wms.common.util.Response;
-import com.ken.wms.common.util.ResponseFactory;
-import com.ken.wms.domain.Goods;
-import com.ken.wms.domain.Supplier;
-import com.ken.wms.exception.GoodsManageServiceException;
+import cn.kc.graduation.wms.common.service.Interface.GoodsManageService;
+import cn.kc.graduation.wms.common.util.Response;
+import cn.kc.graduation.wms.common.util.ResponseFactory;
+import cn.kc.graduation.wms.domain.Goods;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -55,7 +54,7 @@ public class GoodsManageHandler {
         switch (searchType) {
             case SEARCH_BY_ID:
                 if (StringUtils.isNumeric(keyWord))
-                    queryResult = goodsManageService.selectById(Integer.valueOf(keyWord));
+                    queryResult = goodsManageService.selectById(Long.valueOf(keyWord));
                 break;
             case SEARCH_BY_NAME:
                 queryResult = goodsManageService.selectByName(keyWord);
@@ -138,7 +137,7 @@ public class GoodsManageHandler {
     @RequestMapping(value = "getGoodsInfo", method = RequestMethod.GET)
     public
     @ResponseBody
-    Map<String, Object> getGoodsInfo(@RequestParam("goodsID") Integer goodsID) throws GoodsManageServiceException {
+    Map<String, Object> getGoodsInfo(@RequestParam("goodsID") Long goodsID) throws GoodsManageServiceException {
         // 初始化 Response
         Response responseContent = ResponseFactory.newInstance();
         String result = Response.RESPONSE_RESULT_ERROR;
@@ -189,7 +188,7 @@ public class GoodsManageHandler {
     @RequestMapping(value = "deleteGoods", method = RequestMethod.GET)
     public
     @ResponseBody
-    Map<String, Object> deleteGoods(@RequestParam("goodsID") Integer goodsID) throws GoodsManageServiceException {
+    Map<String, Object> deleteGoods(@RequestParam("goodsID") Long goodsID) throws GoodsManageServiceException {
         // 初始化 Response
         Response responseContent = ResponseFactory.newInstance();
 

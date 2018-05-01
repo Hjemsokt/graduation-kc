@@ -1,13 +1,12 @@
 package cn.kc.graduation.wms.security.service.Impl;
 
 
+import cn.kc.graduation.wms.domain.UserInfoDTO;
+import cn.kc.graduation.wms.exception.UserAccountServiceException;
+import cn.kc.graduation.wms.exception.UserInfoServiceException;
+import cn.kc.graduation.wms.security.service.Interface.AccountService;
+import cn.kc.graduation.wms.security.service.Interface.UserInfoService;
 import cn.kc.graduation.wms.security.util.MD5Util;
-import com.ken.wms.domain.UserInfoDTO;
-import com.ken.wms.exception.UserAccountServiceException;
-import com.ken.wms.exception.UserInfoServiceException;
-import com.ken.wms.security.service.Interface.AccountService;
-import com.ken.wms.security.service.Interface.UserInfoService;
-import com.ken.wms.security.util.MD5Util;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
@@ -19,9 +18,6 @@ import java.util.Map;
 
 /**
  * 账户Service
- *
-
- * @since 2017-3-1
  */
 @Service
 public class AccountServiceImpl implements AccountService {
@@ -37,7 +33,7 @@ public class AccountServiceImpl implements AccountService {
      * 密码更改
      */
     @Override
-    public void passwordModify(Integer userID, Map<String, Object> passwordInfo) throws UserAccountServiceException {
+    public void passwordModify(Long userID, Map<String, Object> passwordInfo) throws UserAccountServiceException {
 
         if (passwordInfo == null)
             throw new UserAccountServiceException(UserAccountServiceException.PASSWORD_ERROR);

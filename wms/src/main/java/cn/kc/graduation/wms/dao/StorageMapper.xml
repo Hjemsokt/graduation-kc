@@ -3,10 +3,10 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.ken.wms.dao.StorageMapper">
+<mapper namespace="cn.kc.graduation.wms.dao.StorageMapper">
 	
 	<!-- 结果映射 -->
-	<resultMap type="com.ken.wms.domain.Storage" id="storage">
+	<resultMap type="cn.kc.graduation.wms.domain.Storage" id="storage">
 		<id property="goodsID" column="goodsID"/>
 		<result property="goodsName" column="goodsName"/>
 		<result property="goodsSize" column="goodsSize"/>
@@ -15,12 +15,12 @@
 		<result property="repositoryID" column="repositoryID"/>
 		<result property="number" column="number"/>
 		<!-- 
-		<association property="goodsInfo" javaType="com.ken.Goods" resultMap="goods"/>
+		<association property="goodsInfo" javaType="cn.kc.graduation.Goods" resultMap="goods"/>
 		 -->
 	</resultMap>
 	
 	<!-- 
-	<resultMap type="com.ken.Goods" id="goods">
+	<resultMap type="cn.kc.graduation.Goods" id="goods">
 		<id property="id" column="goodsID"/>
 		<result property="name" column="goodsName"/>
 		<result property="size" column="goodsSize"/>

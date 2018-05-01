@@ -4,21 +4,18 @@ import java.io.Serializable;
 
 /**
  * 登入登出记录DTO
- *
-
- * @since 2017/4/8.
  */
 public class AccessRecordDTO implements Serializable {
 
     /**
      * 登入登出记录ID
      */
-    private Integer id;
+    private Long id;
 
     /**
      * 登陆用户ID
      */
-    private Integer userID;
+    private Long userID;
 
     /**
      * 登陆用户名
@@ -40,11 +37,11 @@ public class AccessRecordDTO implements Serializable {
      */
     private String accessType;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public Integer getUserID() {
+    public Long getUserID() {
         return userID;
     }
 
@@ -64,11 +61,11 @@ public class AccessRecordDTO implements Serializable {
         return accessType;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public void setUserID(Integer userID) {
+    public void setUserID(Long userID) {
         this.userID = userID;
     }
 

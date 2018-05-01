@@ -1,25 +1,18 @@
 package cn.kc.graduation.wms.common.service.Impl;
 
+import cn.kc.graduation.wms.common.service.Interface.StorageManageService;
 import cn.kc.graduation.wms.common.util.EJConvertor;
 import cn.kc.graduation.wms.common.util.FileUtil;
 import cn.kc.graduation.wms.dao.GoodsMapper;
 import cn.kc.graduation.wms.dao.RepositoryMapper;
 import cn.kc.graduation.wms.dao.StorageMapper;
+import cn.kc.graduation.wms.domain.Goods;
+import cn.kc.graduation.wms.domain.Repository;
+import cn.kc.graduation.wms.domain.Storage;
 import cn.kc.graduation.wms.exception.StorageManageServiceException;
 import cn.kc.graduation.wms.util.aop.UserOperation;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.ken.wms.common.service.Interface.StorageManageService;
-import com.ken.wms.common.util.EJConvertor;
-import com.ken.wms.common.util.FileUtil;
-import com.ken.wms.dao.GoodsMapper;
-import com.ken.wms.dao.RepositoryMapper;
-import com.ken.wms.dao.StorageMapper;
-import com.ken.wms.domain.Goods;
-import com.ken.wms.domain.Repository;
-import com.ken.wms.domain.Storage;
-import com.ken.wms.exception.StorageManageServiceException;
-import com.ken.wms.util.aop.UserOperation;
 import org.apache.ibatis.exceptions.PersistenceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,8 +27,6 @@ import java.util.Map;
 
 /**
  * 库存信息管理 service 实现类
- *
-
  */
 @Service
 public class StorageManageServiceImpl implements StorageManageService {
@@ -55,7 +46,7 @@ public class StorageManageServiceImpl implements StorageManageService {
      * @return 结果的一个Map，其中： key为 data 的代表记录数据；key 为 total 代表结果记录的数量
      */
     @Override
-    public Map<String, Object> selectAll(Integer repository) throws StorageManageServiceException {
+    public Map<String, Object> selectAll(Long repository) throws StorageManageServiceException {
         return selectAll(repository, -1, -1);
     }
 
@@ -67,7 +58,7 @@ public class StorageManageServiceImpl implements StorageManageService {
      * @return 结果的一个Map，其中： key为 data 的代表记录数据；key 为 total 代表结果记录的数量
      */
     @Override
-    public Map<String, Object> selectAll(Integer repositoryID, int offset, int limit) throws StorageManageServiceException {
+    public Map<String, Object> selectAll(Long repositoryID, int offset, int limit) throws StorageManageServiceException {
         // 初始化结果集
         Map<String, Object> resultSet = new HashMap<>();
         List<Storage> storageList;
@@ -111,7 +102,7 @@ public class StorageManageServiceImpl implements StorageManageService {
      * @return 结果的一个Map，其中： key为 data 的代表记录数据；key 为 total 代表结果记录的数量
      */
     @Override
-    public Map<String, Object> selectByGoodsID(Integer goodsID, Integer repository) throws StorageManageServiceException {
+    public Map<String, Object> selectByGoodsID(Long goodsID, Long repository) throws StorageManageServiceException {
         return selectByGoodsID(goodsID, repository, -1, -1);
     }
 
@@ -124,7 +115,7 @@ public class StorageManageServiceImpl implements StorageManageService {
      * @return 结果的一个Map，其中： key为 data 的代表记录数据；key 为 total 代表结果记录的数量
      */
     @Override
-    public Map<String, Object> selectByGoodsID(Integer goodsID, Integer repositoryID, int offset, int limit) throws StorageManageServiceException {
+    public Map<String, Object> selectByGoodsID(Long goodsID, Long repositoryID, int offset, int limit) throws StorageManageServiceException {
         // 初始化结果集
         Map<String, Object> resultSet = new HashMap<>();
         List<Storage> storageList;
@@ -168,7 +159,7 @@ public class StorageManageServiceImpl implements StorageManageService {
      * @return 结果的一个Map，其中： key为 data 的代表记录数据；key 为 total 代表结果记录的数量
      */
     @Override
-    public Map<String, Object> selectByGoodsName(String goodsName, Integer repository) throws StorageManageServiceException {
+    public Map<String, Object> selectByGoodsName(String goodsName, Long repository) throws StorageManageServiceException {
         return selectByGoodsName(goodsName, repository, -1, -1);
     }
 
@@ -181,7 +172,7 @@ public class StorageManageServiceImpl implements StorageManageService {
      * @return 结果的一个Map，其中： key为 data 的代表记录数据；key 为 total 代表结果记录的数量
      */
     @Override
-    public Map<String, Object> selectByGoodsName(String goodsName, Integer repositoryID, int offset, int limit) throws StorageManageServiceException {
+    public Map<String, Object> selectByGoodsName(String goodsName, Long repositoryID, int offset, int limit) throws StorageManageServiceException {
         // 初始化结果集
         Map<String, Object> resultSet = new HashMap<>();
         List<Storage> storageList;
@@ -225,7 +216,7 @@ public class StorageManageServiceImpl implements StorageManageService {
      * @return 结果的一个Map，其中： key为 data 的代表记录数据；key 为 total 代表结果记录的数量
      */
     @Override
-    public Map<String, Object> selectByGoodsType(String goodsType, Integer repositoryID) throws StorageManageServiceException {
+    public Map<String, Object> selectByGoodsType(String goodsType, Long repositoryID) throws StorageManageServiceException {
         return selectByGoodsType(goodsType, repositoryID, -1, -1);
     }
 
@@ -238,7 +229,7 @@ public class StorageManageServiceImpl implements StorageManageService {
      * @return 结果的一个Map，其中： key为 data 的代表记录数据；key 为 total 代表结果记录的数量
      */
     @Override
-    public Map<String, Object> selectByGoodsType(String goodsType, Integer repositoryID, int offset, int limit) throws StorageManageServiceException {
+    public Map<String, Object> selectByGoodsType(String goodsType, Long repositoryID, int offset, int limit) throws StorageManageServiceException {
         // 初始化结果集
         Map<String, Object> resultSet = new HashMap<>();
         List<Storage> storageList;
@@ -285,7 +276,7 @@ public class StorageManageServiceImpl implements StorageManageService {
      */
     @UserOperation(value = "添加库存记录")
     @Override
-    public boolean addNewStorage(Integer goodsID, Integer repositoryID, long number) throws StorageManageServiceException {
+    public boolean addNewStorage(Long goodsID, Long repositoryID, long number) throws StorageManageServiceException {
         try {
             boolean isAvailable = true;
 
@@ -327,7 +318,7 @@ public class StorageManageServiceImpl implements StorageManageService {
      */
     @UserOperation(value = "修改库存记录")
     @Override
-    public boolean updateStorage(Integer goodsID, Integer repositoryID, long number) throws StorageManageServiceException {
+    public boolean updateStorage(Long goodsID, Long repositoryID, long number) throws StorageManageServiceException {
         try {
             boolean isUpdate = false;
 
@@ -359,7 +350,7 @@ public class StorageManageServiceImpl implements StorageManageService {
      */
     @UserOperation(value = "删除库存记录")
     @Override
-    public boolean deleteStorage(Integer goodsID, Integer repositoryID) throws StorageManageServiceException {
+    public boolean deleteStorage(Long goodsID, Long repositoryID) throws StorageManageServiceException {
         try {
             boolean isDelete = false;
 
@@ -459,7 +450,7 @@ public class StorageManageServiceImpl implements StorageManageService {
      * @return 返回一个 boolean 值，若值为true表示数目增加成功，否则表示增加失败
      */
     @Override
-    public boolean storageIncrease(Integer goodsID, Integer repositoryID, long number) throws StorageManageServiceException {
+    public boolean storageIncrease(Long goodsID, Long repositoryID, long number) throws StorageManageServiceException {
 
         // 检查货物库存增加数目的有效性
         if (number < 0)
@@ -487,7 +478,7 @@ public class StorageManageServiceImpl implements StorageManageService {
      * @return 返回一个 boolean 值，若值为 true 表示数目减少成功，否则表示减少失败
      */
     @Override
-    public boolean storageDecrease(Integer goodsID, Integer repositoryID, long number) throws StorageManageServiceException {
+    public boolean storageDecrease(Long goodsID, Long repositoryID, long number) throws StorageManageServiceException {
 
         synchronized (this) {
             // 检查对应的库存记录是否存在
@@ -512,7 +503,7 @@ public class StorageManageServiceImpl implements StorageManageService {
      * @param repositoryID 仓库ID
      * @return 若存在则返回对应的记录，否则返回null
      */
-    private Storage getStorage(Integer goodsID, Integer repositoryID) {
+    private Storage getStorage(Long goodsID, Long repositoryID) {
         Storage storage = null;
         List<Storage> storageList = storageMapper.selectByGoodsIDAndRepositoryID(goodsID, repositoryID);
         if (!storageList.isEmpty())

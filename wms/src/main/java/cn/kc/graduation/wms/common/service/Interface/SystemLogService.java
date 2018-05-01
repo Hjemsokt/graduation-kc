@@ -21,7 +21,7 @@ public interface SystemLogService {
      * @param accessIP   登陆IP
      * @param accessType 记录类型
      */
-    void insertAccessRecord(Integer userID, String userName, String accessIP, String accessType) throws SystemLogServiceException;
+    void insertAccessRecord(Long userID, String userName, String accessIP, String accessType) throws SystemLogServiceException;
 
     /**
      * 查询指定用户ID、记录类型或日期范围的登入登出记录
@@ -32,7 +32,7 @@ public interface SystemLogService {
      * @param endDateStr   记录结束日期
      * @return 返回一个Map， 其中键值为 data 的值为所有符合条件的记录， 而键值为 total 的值为符合条件的记录总条数
      */
-    Map<String, Object> selectAccessRecord(Integer userID, String accessType, String startDateStr, String endDateStr) throws SystemLogServiceException;
+    Map<String, Object> selectAccessRecord(Long userID, String accessType, String startDateStr, String endDateStr) throws SystemLogServiceException;
 
     /**
      * 分页查询指定用户ID、记录类型或日期范围的登入登出记录
@@ -45,7 +45,7 @@ public interface SystemLogService {
      * @param limit        分页大小
      * @return 返回一个Map， 其中键值为 data 的值为所有符合条件的记录， 而键值为 total 的值为符合条件的记录总条数
      */
-    Map<String, Object> selectAccessRecord(Integer userID, String accessType, String startDateStr, String endDateStr, int offset, int limit) throws SystemLogServiceException;
+    Map<String, Object> selectAccessRecord(Long userID, String accessType, String startDateStr, String endDateStr, int offset, int limit) throws SystemLogServiceException;
 
     /**
      * 插入用户操作记录
@@ -55,7 +55,7 @@ public interface SystemLogService {
      * @param operationName   操作的名称
      * @param operationResult 操作的记过
      */
-    void insertUserOperationRecord(Integer userID, String userName, String operationName, String operationResult) throws SystemLogServiceException;
+    void insertUserOperationRecord(Long userID, String userName, String operationName, String operationResult) throws SystemLogServiceException;
 
     /**
      * 查询指定用户ID或日期范围的用户操作记录
@@ -65,7 +65,7 @@ public interface SystemLogService {
      * @param endDateStr   记录的结束日期
      * @return 返回一个Map， 其中键值为 data 的值为所有符合条件的记录， 而键值为 total 的值为符合条件的记录总条数
      */
-    Map<String, Object> selectUserOperationRecord(Integer userID, String startDateStr, String endDateStr) throws SystemLogServiceException;
+    Map<String, Object> selectUserOperationRecord(Long userID, String startDateStr, String endDateStr) throws SystemLogServiceException;
 
     /**
      * 分页查询指定用户ID或日期范围的用户操作记录
@@ -77,5 +77,5 @@ public interface SystemLogService {
      * @param limit        分页的大小
      * @return 返回一个Map， 其中键值为 data 的值为所有符合条件的记录， 而键值为 total 的值为符合条件的记录总条数
      */
-    Map<String, Object> selectUserOperationRecord(Integer userID, String startDateStr, String endDateStr, int offset, int limit) throws SystemLogServiceException;
+    Map<String, Object> selectUserOperationRecord(Long userID, String startDateStr, String endDateStr, int offset, int limit) throws SystemLogServiceException;
 }

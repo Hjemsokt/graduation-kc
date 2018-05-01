@@ -5,13 +5,13 @@ import cn.kc.graduation.wms.common.service.Interface.StorageManageService;
 import cn.kc.graduation.wms.common.util.Response;
 import cn.kc.graduation.wms.common.util.ResponseFactory;
 import cn.kc.graduation.wms.exception.StorageManageServiceException;
-import com.ken.wms.common.service.Interface.StockRecordManageService;
-import com.ken.wms.common.service.Interface.StorageManageService;
-import com.ken.wms.common.util.Response;
-import com.ken.wms.common.util.ResponseFactory;
-import com.ken.wms.domain.Storage;
-import com.ken.wms.domain.UserInfoDTO;
-import com.ken.wms.exception.StorageManageServiceException;
+import cn.kc.graduation.wms.common.service.Interface.StockRecordManageService;
+import cn.kc.graduation.wms.common.service.Interface.StorageManageService;
+import cn.kc.graduation.wms.common.util.Response;
+import cn.kc.graduation.wms.common.util.ResponseFactory;
+import cn.kc.graduation.wms.domain.Storage;
+import cn.kc.graduation.wms.domain.UserInfoDTO;
+import cn.kc.graduation.wms.exception.StorageManageServiceException;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -65,35 +65,38 @@ public class StorageManageHandler {
         switch (searchType) {
             case SEARCH_ALL:
                 if (StringUtils.isNumeric(repositoryBelong)) {
-                    Integer repositoryID = Integer.valueOf(repositoryBelong);
+                    Long repositoryID = Long.valueOf(repositoryBelong);
                     queryResult = storageManageService.selectAll(repositoryID, offset, limit);
                 } else {
-                    queryResult = storageManageService.selectAll(-1, offset, limit);
+                    queryResult = storageManageService.selectAll(-1l, offset, limit);
                 }
                 break;
             case SEARCH_BY_GOODS_ID:
                 if (StringUtils.isNumeric(keyword)) {
-                    Integer goodsID = Integer.valueOf(keyword);
+                    Long goodsID = Long.valueOf(keyword);
                     if (StringUtils.isNumeric(repositoryBelong)) {
-                        Integer repositoryID = Integer.valueOf(repositoryBelong);
+                        Long repositoryID = Long.valueOf(repositoryBelong);
                         queryResult = storageManageService.selectByGoodsID(goodsID, repositoryID, offset, limit);
                     } else
-                        queryResult = storageManageService.selectByGoodsID(goodsID, -1, offset, limit);
+                        queryResult = storageManageService.selectByGoodsID(goodsID, -1l, offset,
+                            limit);
                 }
                 break;
             case SEARCH_BY_GOODS_TYPE:
                 if (StringUtils.isNumeric(repositoryBelong)) {
-                    Integer repositoryID = Integer.valueOf(repositoryBelong);
+                    Long repositoryID = Long.valueOf(repositoryBelong);
                     queryResult = storageManageService.selectByGoodsType(keyword, repositoryID, offset, limit);
                 } else
-                    queryResult = storageManageService.selectByGoodsType(keyword, -1, offset, limit);
+                    queryResult = storageManageService.selectByGoodsType(keyword, -1l, offset,
+                        limit);
                 break;
             case SEARCH_BY_GOODS_NAME:
                 if (StringUtils.isNumeric(repositoryBelong)) {
-                    Integer repositoryID = Integer.valueOf(repositoryBelong);
+                    Long repositoryID = Long.valueOf(repositoryBelong);
                     queryResult = storageManageService.selectByGoodsName(keyword, repositoryID, offset, limit);
                 } else
-                    queryResult = storageManageService.selectByGoodsName(keyword, -1, offset, limit);
+                    queryResult = storageManageService.selectByGoodsName(keyword, -1l, offset,
+                        limit);
                 break;
             default:
                 // do other thing
@@ -165,7 +168,7 @@ public class StorageManageHandler {
 
         HttpSession session = request.getSession();
         UserInfoDTO userInfo = (UserInfoDTO) session.getAttribute("userInfo");
-        Integer repositoryID = userInfo.getRepositoryBelong();
+        Long repositoryID = userInfo.getRepositoryBelong();
         if (repositoryID > 0) {
             Map<String, Object> queryResult = query(searchType, keyword, repositoryID.toString(), offset, limit);
             if (queryResult != null) {
@@ -209,8 +212,8 @@ public class StorageManageHandler {
             isAvailable = false;
 
         if (isAvailable) {
-            isSuccess = storageManageService.addNewStorage(Integer.valueOf(goodsID), Integer.valueOf(repositoryID),
-                    Integer.valueOf(number)) ? Response.RESPONSE_RESULT_SUCCESS : Response.RESPONSE_RESULT_ERROR;
+            isSuccess = storageManageService.addNewStorage(Long.valueOf(goodsID), Long.valueOf(repositoryID),
+                    Long.valueOf(number)) ? Response.RESPONSE_RESULT_SUCCESS : Response.RESPONSE_RESULT_ERROR;
         }
 
         // 设置 Response
@@ -244,8 +247,8 @@ public class StorageManageHandler {
             isAvailable = false;
 
         if (isAvailable) {
-            result = storageManageService.updateStorage(Integer.valueOf(goodsID), Integer.valueOf(repositoryID),
-                    Integer.valueOf(number)) ? Response.RESPONSE_RESULT_SUCCESS : Response.RESPONSE_RESULT_ERROR;
+            result = storageManageService.updateStorage(Long.valueOf(goodsID), Long.valueOf(repositoryID),
+                    Long.valueOf(number)) ? Response.RESPONSE_RESULT_SUCCESS : Response.RESPONSE_RESULT_ERROR;
         }
 
         // 设置 Response
@@ -277,7 +280,7 @@ public class StorageManageHandler {
             isAvailable = false;
 
         if (isAvailable) {
-            result = storageManageService.deleteStorage(Integer.valueOf(goodsID), Integer.valueOf(repositoryID))
+            result = storageManageService.deleteStorage(Long.valueOf(goodsID), Long.valueOf(repositoryID))
                     ? Response.RESPONSE_RESULT_SUCCESS : Response.RESPONSE_RESULT_ERROR;
         }
 
@@ -339,7 +342,7 @@ public class StorageManageHandler {
 
         HttpSession session = request.getSession();
         UserInfoDTO userInfo = (UserInfoDTO) session.getAttribute("userInfo");
-        Integer sessionRepositoryBelong = userInfo.getRepositoryBelong();
+        Long sessionRepositoryBelong = userInfo.getRepositoryBelong();
         if (sessionRepositoryBelong > 0)
             repositoryBelong = sessionRepositoryBelong.toString();
 

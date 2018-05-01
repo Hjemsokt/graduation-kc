@@ -4,20 +4,18 @@ import java.io.Serializable;
 
 /**
  * 系统使用的角色信息
-
- *
  */
 public class RoleDO implements Serializable {
 
-	private Integer id;// 角色ID
+	private Long id;// 角色ID
 	private String roleName;// 角色名
 	private String roleDesc;// 角色描述
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

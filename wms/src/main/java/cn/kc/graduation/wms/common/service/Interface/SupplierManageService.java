@@ -22,7 +22,7 @@ public interface SupplierManageService {
      * @param supplierId 供应商ID
      * @return 结果的一个Map，其中： key为 data 的代表记录数据；key 为 total 代表结果记录的数量
      */
-    Map<String, Object> selectById(Integer supplierId) throws SupplierManageServiceException;
+    Map<String, Object> selectById(Long supplierId) throws SupplierManageServiceException;
 
     /**
      * 返回指定 supplierName 的供应商记录
@@ -82,7 +82,7 @@ public interface SupplierManageService {
      * @param supplierId 供应商ID
      * @return 返回一个boolean值，值为true代表更新成功，否则代表失败
      */
-    boolean deleteSupplier(Integer supplierId);
+    boolean deleteSupplier(Long supplierId);
 
     /**
      * 从文件中导入供应商信息

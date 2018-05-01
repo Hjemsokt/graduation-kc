@@ -1,8 +1,9 @@
 package cn.kc.graduation.wms.security.listener;
 
-import com.ken.wms.common.service.Interface.SystemLogService;
-import com.ken.wms.domain.UserInfoDTO;
-import com.ken.wms.exception.SystemLogServiceException;
+
+import cn.kc.graduation.wms.common.service.Interface.SystemLogService;
+import cn.kc.graduation.wms.domain.UserInfoDTO;
+import cn.kc.graduation.wms.exception.SystemLogServiceException;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.SessionListenerAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * Shiro Session 监听器
  * 当Shiro 的 session 被创建、注销或过期的时候触发
- *
-
- * @since 2017/7/22.
  */
 public class SessionListener extends SessionListenerAdapter {
 

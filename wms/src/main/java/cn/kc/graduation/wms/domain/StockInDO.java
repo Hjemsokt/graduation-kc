@@ -6,20 +6,18 @@ import java.util.Date;
 
 /**
  * 入库记录
- *
-
  */
 public class StockInDO implements Serializable {
 
     /**
      * 入库记录
      */
-    private Integer id;
+    private Long id;
 
     /**
      * 供应商ID
      */
-    private Integer supplierID;
+    private Long supplierID;
 
     /**
      * 供应商名称
@@ -29,7 +27,7 @@ public class StockInDO implements Serializable {
     /**
      * 商品ID
      */
-    private Integer goodID;
+    private Long goodID;
 
     /**
      * 商品名称
@@ -39,7 +37,7 @@ public class StockInDO implements Serializable {
     /**
      * 入库仓库ID
      */
-    private Integer repositoryID;
+    private Long repositoryID;
 
     /**
      * 入库数量
@@ -56,35 +54,35 @@ public class StockInDO implements Serializable {
      */
     private String personInCharge;
 
-    public Integer getRepositoryID() {
+    public Long getRepositoryID() {
         return repositoryID;
     }
 
-    public void setRepositoryID(Integer repositoryID) {
+    public void setRepositoryID(Long repositoryID) {
         this.repositoryID = repositoryID;
     }
 
-    public Integer getSupplierID() {
+    public Long getSupplierID() {
         return supplierID;
     }
 
-    public void setSupplierID(Integer supplierID) {
+    public void setSupplierID(Long supplierID) {
         this.supplierID = supplierID;
     }
 
-    public Integer getGoodID() {
+    public Long getGoodID() {
         return goodID;
     }
 
-    public void setGoodID(Integer goodID) {
+    public void setGoodID(Long goodID) {
         this.goodID = goodID;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

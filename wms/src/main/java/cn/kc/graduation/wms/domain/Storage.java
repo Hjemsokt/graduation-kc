@@ -4,25 +4,22 @@ import java.io.Serializable;
 
 /**
  * 仓库库存
- * 
-
- *
  */
 public class Storage implements Serializable {
 
-	private Integer goodsID;// 货物ID
+	private Long goodsID;// 货物ID
 	private String goodsName;// 货物名称
 	private String goodsSize;// 货物规格
 	private String goodsType;// 货物类型
 	private Double goodsValue;// 货物价值
-	private Integer repositoryID;// 仓库ID
+	private Long repositoryID;// 仓库ID
 	private Long number;// 库存数量
 
-	public Integer getGoodsID() {
+	public Long getGoodsID() {
 		return goodsID;
 	}
 
-	public void setGoodsID(Integer goodsID) {
+	public void setGoodsID(Long goodsID) {
 		this.goodsID = goodsID;
 	}
 
@@ -58,11 +55,11 @@ public class Storage implements Serializable {
 		this.goodsValue = goodsValue;
 	}
 
-	public Integer getRepositoryID() {
+	public Long getRepositoryID() {
 		return repositoryID;
 	}
 
-	public void setRepositoryID(Integer repositoryID) {
+	public void setRepositoryID(Long repositoryID) {
 		this.repositoryID = repositoryID;
 	}
 

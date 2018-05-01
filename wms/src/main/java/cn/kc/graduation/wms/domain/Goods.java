@@ -2,22 +2,20 @@ package cn.kc.graduation.wms.domain;
 
 /**
  * 货物信息
-
- *
  */
 public class Goods {
 
-	private Integer id;// 货物ID
+	private Long id;// 货物ID
 	private String name;// 货物名
 	private String type;// 货物类型
 	private String size;// 货物规格
 	private Double value;// 货物价值
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

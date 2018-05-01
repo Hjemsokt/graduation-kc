@@ -1,29 +1,21 @@
 package cn.kc.graduation.wms.common.service.Impl;
 
 
+import cn.kc.graduation.wms.common.service.Interface.GoodsManageService;
 import cn.kc.graduation.wms.common.util.EJConvertor;
 import cn.kc.graduation.wms.common.util.FileUtil;
 import cn.kc.graduation.wms.dao.GoodsMapper;
 import cn.kc.graduation.wms.dao.StockInMapper;
 import cn.kc.graduation.wms.dao.StockOutMapper;
 import cn.kc.graduation.wms.dao.StorageMapper;
+import cn.kc.graduation.wms.domain.Goods;
+import cn.kc.graduation.wms.domain.StockInDO;
+import cn.kc.graduation.wms.domain.StockOutDO;
+import cn.kc.graduation.wms.domain.Storage;
 import cn.kc.graduation.wms.exception.GoodsManageServiceException;
 import cn.kc.graduation.wms.util.aop.UserOperation;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.ken.wms.common.service.Interface.GoodsManageService;
-import com.ken.wms.common.util.EJConvertor;
-import com.ken.wms.common.util.FileUtil;
-import com.ken.wms.dao.GoodsMapper;
-import com.ken.wms.dao.StockInMapper;
-import com.ken.wms.dao.StockOutMapper;
-import com.ken.wms.dao.StorageMapper;
-import com.ken.wms.domain.Goods;
-import com.ken.wms.domain.StockInDO;
-import com.ken.wms.domain.StockOutDO;
-import com.ken.wms.domain.Storage;
-import com.ken.wms.exception.GoodsManageServiceException;
-import com.ken.wms.util.aop.UserOperation;
 import org.apache.ibatis.exceptions.PersistenceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,8 +30,6 @@ import java.util.Map;
 
 /**
  * 货物信息管理Service 实现类
- *
-
  */
 @Service
 public class GoodsManageServiceImpl implements GoodsManageService {
@@ -62,7 +52,7 @@ public class GoodsManageServiceImpl implements GoodsManageService {
      * @return 结果的一个Map，其中： key为 data 的代表记录数据；key 为 total 代表结果记录的数量
      */
     @Override
-    public Map<String, Object> selectById(Integer goodsId) throws GoodsManageServiceException {
+    public Map<String, Object> selectById(Long goodsId) throws GoodsManageServiceException {
         // 初始化结果集
         Map<String, Object> resultSet = new HashMap<>();
         List<Goods> goodsList = new ArrayList<>();
@@ -271,7 +261,7 @@ public class GoodsManageServiceImpl implements GoodsManageService {
      */
     @UserOperation(value = "删除货物信息")
     @Override
-    public boolean deleteGoods(Integer goodsId) throws GoodsManageServiceException {
+    public boolean deleteGoods(Long goodsId) throws GoodsManageServiceException {
 
         try {
             // 检查该货物是否有入库信息

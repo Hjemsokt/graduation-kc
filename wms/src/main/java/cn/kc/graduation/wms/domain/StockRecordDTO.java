@@ -4,16 +4,13 @@ import java.io.Serializable;
 
 /**
  * 出库/入库记录DO
- *
-
- * @since 2017/4/5.
  */
 public class StockRecordDTO implements Serializable {
 
     /**
      * 记录ID
      */
-    private Integer recordID;
+    private Long recordID;
 
     /**
      * 记录的类型（出库/入库）
@@ -33,7 +30,7 @@ public class StockRecordDTO implements Serializable {
     /**
      * 出库或入库仓库ID
      */
-    private Integer repositoryID;
+    private Long repositoryID;
 
     /**
      * 出库或入库数量
@@ -51,7 +48,7 @@ public class StockRecordDTO implements Serializable {
     private String personInCharge;
 
 
-    public Integer getRecordID() {
+    public Long getRecordID() {
         return recordID;
     }
 
@@ -67,7 +64,7 @@ public class StockRecordDTO implements Serializable {
         return goodsName;
     }
 
-    public Integer getRepositoryID() {
+    public Long getRepositoryID() {
         return repositoryID;
     }
 
@@ -83,7 +80,7 @@ public class StockRecordDTO implements Serializable {
         return personInCharge;
     }
 
-    public void setRecordID(Integer recordID) {
+    public void setRecordID(Long recordID) {
         this.recordID = recordID;
     }
 
@@ -99,7 +96,7 @@ public class StockRecordDTO implements Serializable {
         this.goodsName = goodsName;
     }
 
-    public void setRepositoryID(Integer repositoryID) {
+    public void setRepositoryID(Long repositoryID) {
         this.repositoryID = repositoryID;
     }
 

@@ -3,14 +3,9 @@ package cn.kc.graduation.wms.common.controller;
 import cn.kc.graduation.wms.common.service.Interface.SystemLogService;
 import cn.kc.graduation.wms.common.util.Response;
 import cn.kc.graduation.wms.common.util.ResponseFactory;
+import cn.kc.graduation.wms.domain.AccessRecordDO;
 import cn.kc.graduation.wms.domain.UserOperationRecordDTO;
 import cn.kc.graduation.wms.exception.SystemLogServiceException;
-import com.ken.wms.common.service.Interface.SystemLogService;
-import com.ken.wms.common.util.Response;
-import com.ken.wms.common.util.ResponseFactory;
-import com.ken.wms.domain.AccessRecordDO;
-import com.ken.wms.domain.UserOperationRecordDTO;
-import com.ken.wms.exception.SystemLogServiceException;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -70,9 +65,9 @@ public class SystemLogHandler {
 
         if (startDateFormatCheck && endDateFormatCheck && userIDCheck) {
             // 转到 Service 执行查询
-            Integer userID = -1;
+            Long userID = -1l;
             if (StringUtils.isNumeric(userIDStr))
-                userID = Integer.valueOf(userIDStr);
+                userID = Long.valueOf(userIDStr);
             Map<String, Object> queryResult = systemLogService.selectAccessRecord(userID, accessType, startDateStr, endDateStr, offset, limit);
             if (queryResult != null) {
                 rows = (List<AccessRecordDO>) queryResult.get("data");
@@ -122,9 +117,9 @@ public class SystemLogHandler {
 
         if (startDateFormatCheck && endDateFormatCheck && userIDCheck) {
             // 转到 Service 进行查询
-            Integer userID = -1;
+            Long userID = -1l;
             if (StringUtils.isNumeric(userIDStr))
-                userID = Integer.valueOf(userIDStr);
+                userID = Long.valueOf(userIDStr);
             Map<String, Object> queryResult = systemLogService.selectUserOperationRecord(userID, startDateStr, endDateStr, offset, limit);
             if (queryResult != null) {
                 rows = (List<UserOperationRecordDTO>) queryResult.get("data");

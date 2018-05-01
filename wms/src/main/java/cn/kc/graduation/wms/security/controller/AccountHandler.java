@@ -1,18 +1,16 @@
 package cn.kc.graduation.wms.security.controller;
 
+import cn.kc.graduation.wms.common.service.Interface.RepositoryAdminManageService;
+import cn.kc.graduation.wms.common.service.Interface.SystemLogService;
+import cn.kc.graduation.wms.common.util.Response;
+import cn.kc.graduation.wms.common.util.ResponseFactory;
+import cn.kc.graduation.wms.domain.RepositoryAdmin;
+import cn.kc.graduation.wms.domain.UserInfoDTO;
+import cn.kc.graduation.wms.exception.RepositoryAdminManageServiceException;
+import cn.kc.graduation.wms.exception.SystemLogServiceException;
+import cn.kc.graduation.wms.exception.UserAccountServiceException;
 import cn.kc.graduation.wms.security.service.Interface.AccountService;
 import cn.kc.graduation.wms.security.util.CaptchaGenerator;
-import com.ken.wms.common.service.Interface.RepositoryAdminManageService;
-import com.ken.wms.common.service.Interface.SystemLogService;
-import com.ken.wms.common.util.Response;
-import com.ken.wms.common.util.ResponseFactory;
-import com.ken.wms.domain.RepositoryAdmin;
-import com.ken.wms.domain.UserInfoDTO;
-import com.ken.wms.exception.RepositoryAdminManageServiceException;
-import com.ken.wms.exception.SystemLogServiceException;
-import com.ken.wms.exception.UserAccountServiceException;
-import com.ken.wms.security.service.Interface.AccountService;
-import com.ken.wms.security.util.CaptchaGenerator;
 import org.apache.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -37,9 +35,6 @@ import java.util.Map;
 
 /**
  * 用户账户请求 Handler
- *
-
- * @since 017/2/26.
  */
 @Controller
 @RequestMapping("/account")
@@ -94,9 +89,9 @@ public class AccountHandler {
                 userInfo.setAccessIP(session.getHost());
                 // 查询并设置用户所属的仓库ID
                 List<RepositoryAdmin> repositoryAdmin = (List<RepositoryAdmin>) repositoryAdminManageService.selectByID(userInfo.getUserID()).get("data");
-                userInfo.setRepositoryBelong(-1);
+                userInfo.setRepositoryBelong(-1l);
                 if (!repositoryAdmin.isEmpty()) {
-                    Integer repositoryBelong = repositoryAdmin.get(0).getRepositoryBelongID();
+                    Long repositoryBelong = repositoryAdmin.get(0).getRepositoryBelongID();
                     if (repositoryBelong != null) {
                         userInfo.setRepositoryBelong(repositoryBelong);
                     }
@@ -181,7 +176,7 @@ public class AccountHandler {
         // 获取用户 ID
         HttpSession session = request.getSession();
         UserInfoDTO userInfo = (UserInfoDTO) session.getAttribute("userInfo");
-        Integer userID = userInfo.getUserID();
+        Long userID = userInfo.getUserID();
 
         try {
             // 更改密码

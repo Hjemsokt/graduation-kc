@@ -4,11 +4,11 @@ import cn.kc.graduation.wms.common.service.Interface.SupplierManageService;
 import cn.kc.graduation.wms.common.util.Response;
 import cn.kc.graduation.wms.common.util.ResponseFactory;
 import cn.kc.graduation.wms.exception.SupplierManageServiceException;
-import com.ken.wms.common.service.Interface.SupplierManageService;
-import com.ken.wms.common.util.Response;
-import com.ken.wms.common.util.ResponseFactory;
-import com.ken.wms.domain.Supplier;
-import com.ken.wms.exception.SupplierManageServiceException;
+import cn.kc.graduation.wms.common.service.Interface.SupplierManageService;
+import cn.kc.graduation.wms.common.util.Response;
+import cn.kc.graduation.wms.common.util.ResponseFactory;
+import cn.kc.graduation.wms.domain.Supplier;
+import cn.kc.graduation.wms.exception.SupplierManageServiceException;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -54,7 +54,7 @@ public class SupplierManageHandler {
         switch (searchType) {
             case SEARCH_BY_ID:
                 if (StringUtils.isNumeric(keyWord)) {
-                    queryResult = supplierManageService.selectById(Integer.valueOf(keyWord));
+                    queryResult = supplierManageService.selectById(Long.valueOf(keyWord));
                 }
                 break;
             case SEARCH_BY_NAME:
@@ -137,7 +137,8 @@ public class SupplierManageHandler {
     @RequestMapping(value = "getSupplierInfo", method = RequestMethod.GET)
     public
     @ResponseBody
-    Map<String, Object> getSupplierInfo(@RequestParam("supplierID") int supplierID) throws SupplierManageServiceException {
+    Map<String, Object> getSupplierInfo(@RequestParam("supplierID") long supplierID) throws
+        SupplierManageServiceException {
         // 初始化 Response
         Response responseContent = ResponseFactory.newInstance();
         String result = Response.RESPONSE_RESULT_ERROR;
@@ -187,7 +188,7 @@ public class SupplierManageHandler {
     @RequestMapping(value = "deleteSupplier", method = RequestMethod.GET)
     public
     @ResponseBody
-    Map<String, Object> deleteSupplier(@RequestParam("supplierID") Integer supplierID) {
+    Map<String, Object> deleteSupplier(@RequestParam("supplierID") Long supplierID) {
         // 初始化 Response
         Response responseContent = ResponseFactory.newInstance();
 

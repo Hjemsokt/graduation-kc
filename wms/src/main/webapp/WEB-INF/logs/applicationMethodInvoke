@@ -1,30 +1,36 @@
-[04-30-20-46-47][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:getUserInfo	args：1001
- [04-30-20-47-46][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:getUserInfo	args：1001
- [04-30-20-47-57][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:getUserInfo	args：1001
- [04-30-20-50-12][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:getUserInfo	args：1001
- [04-30-20-50-21][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:getUserInfo	args：1001
- [04-30-20-50-35][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:getUserInfo	args：1001
- [04-30-20-56-35][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:getUserInfo	args：1001
- [04-30-20-56-45][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:getUserInfo	args：1001
- [04-30-21-04-38][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:getUserInfo	args：1001
- [04-30-21-08-37][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:getUserInfo	args：1001
- [04-30-21-19-26][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:getUserInfo	args：1001
- [04-30-21-19-43][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:getUserInfo	args：1001
- [04-30-21-19-43][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectByID	args：1001
- [04-30-21-19-43][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:insertAccessRecord	args：1001admin0:0:0:0:0:0:0:1login
- [04-30-21-20-14][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectByID	args：1018
- [04-30-21-20-19][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectUnassign	args：
- [04-30-21-20-56][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:addRepositoryAdmin	args：RepositoryAdmin [id=null, name=顾周超, sex=男, tel=123456, address=深圳, birth=2018-04-18, repositoryBelongID=null]
- [04-30-21-20-56][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:insertUserInfo	args：UserInfoDTO{userID=1020, userName='顾周超', password='1020', firstLogin=false, role=[commonsAdmin]}
- [04-30-21-20-56][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:insertUserOperationRecord	args：1001admin添加仓库管理员信息成功
- [04-30-21-20-56][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectByID	args：1018
- [04-30-21-21-53][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectAll	args：-1-1
- [04-30-21-23-56][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectByGoodsID	args：103-105
- [04-30-21-24-05][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectAll	args：-1-1
- [04-30-21-24-37][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectAll	args：05
- [04-30-21-24-44][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectAll	args：05
- [04-30-21-25-24][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectAccessRecord	args：-1all05
- [04-30-21-25-29][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectUserOperationRecord	args：-105
- [04-30-21-25-37][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectAll	args：-1-1
- [04-30-21-25-44][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectAll	args：-105
+[05-01-11-13-21][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:getUserInfo	args：1001
+ [05-01-11-13-21][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectByID	args：1001
+ [05-01-11-13-21][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:insertAccessRecord	args：1001admin0:0:0:0:0:0:0:1login
+ [05-01-12-00-00][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:getUserInfo	args：1001
+ [05-01-12-00-00][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectByID	args：1001
+ [05-01-12-00-00][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:insertAccessRecord	args：1001admin0:0:0:0:0:0:0:1login
+ [05-01-12-00-14][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectAll	args：-1-1
+ [05-01-12-00-22][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectByName	args：-1-1
+ [05-01-12-00-24][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectByName	args：-1-1你
+ [05-01-12-00-25][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectByName	args：-1-1
+ [05-01-12-00-33][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectByName	args：密碼
+ [05-01-12-00-36][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectByName	args：
+ [05-01-12-00-39][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectByName	args：到
+ [05-01-12-00-40][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectByName	args：電腦
+ [05-01-12-00-41][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectByName	args：
+ [05-01-12-00-41][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectByName	args：大
+ [05-01-12-00-43][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectByName	args：電腦
+ [05-01-12-00-43][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectByName	args：電腦
+ [05-01-12-01-03][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectByName	args：-1-1浙江奇同电器有限公司
+ [05-01-12-12-18][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:getUserInfo	args：1001
+ [05-01-12-12-18][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectByID	args：1001
+ [05-01-12-12-18][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:insertAccessRecord	args：1001admin0:0:0:0:0:0:0:1login
+ [05-01-12-12-58][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:addGoods	args：Goods [id=null, name=電腦, type=電器, size=30*30, value=10000.0]
+ [05-01-12-12-58][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:insertUserOperationRecord	args：1001admin添加货物信息成功
+ [05-01-12-13-03][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectAll	args：05
+ [05-01-12-13-20][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectAll	args：-1-1
+ [05-01-23-05-23][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:getUserInfo	args：1001
+ [05-01-23-05-42][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:getUserInfo	args：1001
+ [05-01-23-05-42][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectByID	args：1001
+ [05-01-23-05-42][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:insertAccessRecord	args：1001admin0:0:0:0:0:0:0:1login
+ [05-01-23-05-50][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectAll	args：-1-1
+ [05-01-23-05-54][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectAll	args：-105
+ [05-01-23-06-06][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectAll	args：05
+ [05-01-23-06-14][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectAll	args：05
+ [05-01-23-06-20][DEBUG] (MethodInvokeLogging:loggingMethodInvoked) - Invoked Method:selectAll	args：05
  

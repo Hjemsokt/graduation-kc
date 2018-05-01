@@ -368,12 +368,12 @@ public class EJConvertor {
         // field 对值
         T fieldValue = null;
 
-        if (fieldClass == int.class || fieldClass == Integer.class) {
-            // convert to Integer
+        if (fieldClass == int.class || fieldClass == Long.class) {
+            // convert to Long
             cell.setCellType(Cell.CELL_TYPE_STRING);
             String cellValue = cell.getStringCellValue();
-            Integer integer = NumberUtils.isNumber(cellValue) ? Double.valueOf(cellValue).intValue() : 0;
-            fieldValue = (T) integer;
+            Long Long = NumberUtils.isNumber(cellValue) ? Double.valueOf(cellValue).longValue() : 0;
+            fieldValue = (T) Long;
         } else if (fieldClass == long.class || fieldClass == Long.class) {
             // convert to Long
             cell.setCellType(Cell.CELL_TYPE_STRING);
@@ -455,8 +455,8 @@ public class EJConvertor {
             cell.setCellValue((Byte) cellValue);
         } else if (cellValueClass == short.class || cellValueClass == Short.class) {
             cell.setCellValue((Short) cellValue);
-        } else if (cellValueClass == int.class || cellValueClass == Integer.class) {
-            cell.setCellValue((Integer) cellValue);
+        } else if (cellValueClass == int.class || cellValueClass == Long.class) {
+            cell.setCellValue((Long) cellValue);
         } else if (cellValueClass == long.class || cellValueClass == Long.class) {
             cell.setCellValue((Long) cellValue);
         } else if (cellValueClass == float.class || cellValueClass == Float.class) {

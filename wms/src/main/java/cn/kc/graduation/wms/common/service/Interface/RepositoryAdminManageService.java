@@ -23,7 +23,7 @@ public interface RepositoryAdminManageService {
      * @param repositoryAdminID 仓库管理员ID
      * @return 结果的一个Map，其中： key为 data 的代表记录数据；key 为 total 代表结果记录的数量
      */
-    Map<String, Object> selectByID(Integer repositoryAdminID) throws RepositoryAdminManageServiceException;
+    Map<String, Object> selectByID(Long repositoryAdminID) throws RepositoryAdminManageServiceException;
 
     /**
      * 返回所属指定 repositoryID 的仓库管理员信息
@@ -31,7 +31,7 @@ public interface RepositoryAdminManageService {
      * @param repositoryID 仓库ID 其中： key为 data 的代表记录数据；key 为 total 代表结果记录的数量
      * @return 返回一个Map，
      */
-    Map<String, Object> selectByRepositoryID(Integer repositoryID) throws RepositoryAdminManageServiceException;
+    Map<String, Object> selectByRepositoryID(Long repositoryID) throws RepositoryAdminManageServiceException;
 
     /**
      * 返回指定 repository address 的仓库管理员记录
@@ -91,7 +91,7 @@ public interface RepositoryAdminManageService {
      * @param repositoryAdminID 仓库管理员ID
      * @return 返回一个boolean值，值为true代表删除成功，否则代表失败
      */
-    boolean deleteRepositoryAdmin(Integer repositoryAdminID) throws RepositoryAdminManageServiceException;
+    boolean deleteRepositoryAdmin(Long repositoryAdminID) throws RepositoryAdminManageServiceException;
 
     /**
      * 为仓库管理员指派指定 ID 的仓库
@@ -100,7 +100,7 @@ public interface RepositoryAdminManageService {
      * @param repositoryID      所指派的仓库ID
      * @return 返回一个 boolean 值，值为 true 表示仓库指派成功，否则表示失败
      */
-    boolean assignRepository(Integer repositoryAdminID, Integer repositoryID) throws RepositoryAdminManageServiceException;
+    boolean assignRepository(Long repositoryAdminID, Long repositoryID) throws RepositoryAdminManageServiceException;
 
     /**
      * 从文件中导入仓库管理员信息

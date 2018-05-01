@@ -2,9 +2,6 @@ package cn.kc.graduation.wms.exception;
 
 /**
  * RepositoryAdminManageService异常
- *
-
- * @since 2017/3/8.
  */
 public class RepositoryAdminManageServiceException extends BusinessException {
 

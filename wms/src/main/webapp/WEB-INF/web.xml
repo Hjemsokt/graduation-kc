@@ -69,11 +69,11 @@
          ==================================================-->
     <error-page>
         <error-code>404</error-code>
-        <location>/errorPage/404Error.html</location>
+        <location>//errorPage/404Error.html</location>
     </error-page>
     <error-page>
         <error-code>500</error-code>
-        <location>/errorPage/500Error.html</location>
+        <location>//errorPage/500Error.html</location>
     </error-page>
 
 </web-app>

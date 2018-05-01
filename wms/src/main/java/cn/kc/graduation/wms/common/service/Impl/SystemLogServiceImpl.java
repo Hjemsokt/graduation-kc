@@ -23,9 +23,6 @@ import java.util.*;
 
 /**
  * 系统操作日志 Service 实现
- *
-
- * @since 2017/4/7.
  */
 @Service
 public class SystemLogServiceImpl implements SystemLogService {
@@ -44,7 +41,7 @@ public class SystemLogServiceImpl implements SystemLogService {
      * @param accessType 记录类型
      */
     @Override
-    public void insertAccessRecord(Integer userID, String userName, String accessIP, String accessType) throws SystemLogServiceException {
+    public void insertAccessRecord(Long userID, String userName, String accessIP, String accessType) throws SystemLogServiceException {
         // 创建 AccessRecordDO 对象
         AccessRecordDO accessRecordDO = new AccessRecordDO();
         accessRecordDO.setUserID(userID);
@@ -71,7 +68,7 @@ public class SystemLogServiceImpl implements SystemLogService {
      * @return 返回一个Map， 其中键值为 data 的值为所有符合条件的记录， 而键值为 total 的值为符合条件的记录总条数
      */
     @Override
-    public Map<String, Object> selectAccessRecord(Integer userID, String accessType, String startDateStr, String endDateStr) throws SystemLogServiceException {
+    public Map<String, Object> selectAccessRecord(Long userID, String accessType, String startDateStr, String endDateStr) throws SystemLogServiceException {
         return selectAccessRecord(userID, accessType, startDateStr, endDateStr, -1, -1);
     }
 
@@ -87,7 +84,7 @@ public class SystemLogServiceImpl implements SystemLogService {
      * @return 返回一个Map， 其中键值为 data 的值为所有符合条件的记录， 而键值为 total 的值为符合条件的记录总条数
      */
     @Override
-    public Map<String, Object> selectAccessRecord(Integer userID, String accessType, String startDateStr, String endDateStr, int offset, int limit) throws SystemLogServiceException {
+    public Map<String, Object> selectAccessRecord(Long userID, String accessType, String startDateStr, String endDateStr, int offset, int limit) throws SystemLogServiceException {
         // 准备结果集
         Map<String, Object> resultSet = new HashMap<>();
         List<AccessRecordDTO> accessRecordDTOS = new ArrayList<>();
@@ -161,7 +158,7 @@ public class SystemLogServiceImpl implements SystemLogService {
      * @param operationResult 操作的记过
      */
     @Override
-    public void insertUserOperationRecord(Integer userID, String userName, String operationName, String operationResult) throws SystemLogServiceException {
+    public void insertUserOperationRecord(Long userID, String userName, String operationName, String operationResult) throws SystemLogServiceException {
         // 创建 UserOperationRecordDO 对象
         UserOperationRecordDO userOperationRecordDO = new UserOperationRecordDO();
         userOperationRecordDO.setUserID(userID);
@@ -187,7 +184,7 @@ public class SystemLogServiceImpl implements SystemLogService {
      * @return 返回一个Map， 其中键值为 data 的值为所有符合条件的记录， 而键值为 total 的值为符合条件的记录总条数
      */
     @Override
-    public Map<String, Object> selectUserOperationRecord(Integer userID, String startDateStr, String endDateStr) throws SystemLogServiceException {
+    public Map<String, Object> selectUserOperationRecord(Long userID, String startDateStr, String endDateStr) throws SystemLogServiceException {
         return selectUserOperationRecord(userID, startDateStr, endDateStr, -1, -1);
     }
 
@@ -202,7 +199,7 @@ public class SystemLogServiceImpl implements SystemLogService {
      * @return 返回一个Map， 其中键值为 data 的值为所有符合条件的记录， 而键值为 total 的值为符合条件的记录总条数
      */
     @Override
-    public Map<String, Object> selectUserOperationRecord(Integer userID, String startDateStr, String endDateStr, int offset, int limit) throws SystemLogServiceException {
+    public Map<String, Object> selectUserOperationRecord(Long userID, String startDateStr, String endDateStr, int offset, int limit) throws SystemLogServiceException {
         // 准备结果集
         Map<String, Object> resultSet = new HashMap<>();
         List<UserOperationRecordDTO> userOperationRecordDTOS = new ArrayList<>();

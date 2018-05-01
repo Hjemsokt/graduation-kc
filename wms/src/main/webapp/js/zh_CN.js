@@ -187,7 +187,7 @@
         imo: {
             'default': '请输入有效的IMO'
         },
-        integer: {
+        Long: {
             'default': '请输入有效的整数'
         },
         ip: {

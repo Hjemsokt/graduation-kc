@@ -1,13 +1,11 @@
 package cn.kc.graduation.wms.security.service.Interface;
 
-import com.ken.wms.exception.UserAccountServiceException;
+import cn.kc.graduation.wms.exception.UserAccountServiceException;
 
 import java.util.Map;
 
 /**
  * 账号相关服务
-
- *
  */
 public interface AccountService {
 
@@ -16,5 +14,6 @@ public interface AccountService {
 	 * @param userID 用户ID
 	 * @param passwordInfo 更改的密码信息
 	 */
-	public void passwordModify(Integer userID, Map<String, Object> passwordInfo) throws UserAccountServiceException;
+	public void passwordModify(Long userID, Map<String, Object> passwordInfo) throws
+		UserAccountServiceException;
 }

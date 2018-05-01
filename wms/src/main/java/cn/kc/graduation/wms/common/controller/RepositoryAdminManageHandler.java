@@ -3,12 +3,8 @@ package cn.kc.graduation.wms.common.controller;
 import cn.kc.graduation.wms.common.service.Interface.RepositoryAdminManageService;
 import cn.kc.graduation.wms.common.util.Response;
 import cn.kc.graduation.wms.common.util.ResponseFactory;
+import cn.kc.graduation.wms.domain.RepositoryAdmin;
 import cn.kc.graduation.wms.exception.RepositoryAdminManageServiceException;
-import com.ken.wms.common.service.Interface.RepositoryAdminManageService;
-import com.ken.wms.common.util.Response;
-import com.ken.wms.common.util.ResponseFactory;
-import com.ken.wms.domain.RepositoryAdmin;
-import com.ken.wms.exception.RepositoryAdminManageServiceException;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -61,14 +57,14 @@ public class RepositoryAdminManageHandler {
                 break;
             case SEARCH_BY_ID:
                 if (StringUtils.isNumeric(keyWord))
-                    queryResult = repositoryAdminManageService.selectByID(Integer.valueOf(keyWord));
+                    queryResult = repositoryAdminManageService.selectByID(Long.valueOf(keyWord));
                 break;
             case SEARCH_BY_NAME:
                 queryResult = repositoryAdminManageService.selectByName(offset, limit, keyWord);
                 break;
             case SEARCH_BY_REPOSITORY_ID:
                 if (StringUtils.isNumeric(keyWord))
-                    queryResult = repositoryAdminManageService.selectByRepositoryID(Integer.valueOf(keyWord));
+                    queryResult = repositoryAdminManageService.selectByRepositoryID(Long.valueOf(keyWord));
                 break;
             default:
                 // do other things
@@ -146,7 +142,7 @@ public class RepositoryAdminManageHandler {
     @RequestMapping(value = "getRepositoryAdminInfo", method = RequestMethod.GET)
     public
     @ResponseBody
-    Map<String, Object> getRepositoryAdminInfo(Integer repositoryAdminID) throws RepositoryAdminManageServiceException {
+    Map<String, Object> getRepositoryAdminInfo(Long repositoryAdminID) throws RepositoryAdminManageServiceException {
         // 初始化 Response
         Response responseContent = ResponseFactory.newInstance();
         String result = Response.RESPONSE_RESULT_ERROR;
@@ -198,7 +194,7 @@ public class RepositoryAdminManageHandler {
     @RequestMapping(value = "deleteRepositoryAdmin", method = RequestMethod.GET)
     public
     @ResponseBody
-    Map<String, Object> deleteRepositoryAdmin(Integer repositoryAdminID) throws RepositoryAdminManageServiceException {
+    Map<String, Object> deleteRepositoryAdmin(Long repositoryAdminID) throws RepositoryAdminManageServiceException {
         // 初始化 Response
         Response responseContent = ResponseFactory.newInstance();
 

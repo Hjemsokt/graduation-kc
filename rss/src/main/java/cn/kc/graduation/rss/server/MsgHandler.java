@@ -35,7 +35,7 @@ public class MsgHandler implements Runnable {
 				user.setAge(Integer.valueOf(msg[1]));
 				System.out.println("+++");
 				logger.info(user.toString());
-				logger.info("insert record: " + userDao.insertUser(user));
+				logger.info("insertStockIn record: " + userDao.insertUser(user));
 
 			} catch (InterruptedException e) {
 				logger.error(e.getMessage());

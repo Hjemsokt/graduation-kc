@@ -4,12 +4,12 @@ import cn.kc.graduation.wms.common.service.Interface.CustomerManageService;
 import cn.kc.graduation.wms.common.util.Response;
 import cn.kc.graduation.wms.common.util.ResponseFactory;
 import cn.kc.graduation.wms.exception.CustomerManageServiceException;
-import com.ken.wms.common.service.Interface.CustomerManageService;
-import com.ken.wms.common.util.Response;
-import com.ken.wms.common.util.ResponseFactory;
-import com.ken.wms.domain.Customer;
-import com.ken.wms.domain.Supplier;
-import com.ken.wms.exception.CustomerManageServiceException;
+import cn.kc.graduation.wms.common.service.Interface.CustomerManageService;
+import cn.kc.graduation.wms.common.util.Response;
+import cn.kc.graduation.wms.common.util.ResponseFactory;
+import cn.kc.graduation.wms.domain.Customer;
+import cn.kc.graduation.wms.domain.Supplier;
+import cn.kc.graduation.wms.exception.CustomerManageServiceException;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -55,7 +55,7 @@ public class CustomerManageHandler {
         switch (searchType) {
             case SEARCH_BY_ID:
                 if (StringUtils.isNumeric(keyWord))
-                    queryResult = customerManageService.selectById(Integer.valueOf(keyWord));
+                    queryResult = customerManageService.selectById(Long.valueOf(keyWord));
                 break;
             case SEARCH_BY_NAME:
                 queryResult = customerManageService.selectByName(offset, limit, keyWord);
@@ -194,8 +194,8 @@ public class CustomerManageHandler {
 
         // 参数检查
         if (StringUtils.isNumeric(customerIDStr)) {
-            // 转换为 Integer
-            Integer customerID = Integer.valueOf(customerIDStr);
+            // 转换为 Long
+            Long customerID = Long.valueOf(customerIDStr);
 
             // 刪除
             String result = customerManageService.deleteCustomer(customerID) ? Response.RESPONSE_RESULT_SUCCESS : Response.RESPONSE_RESULT_ERROR;

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<configuration xmlns="http://www.ken.com/schema/EJConvertor"
+<configuration xmlns="http://www.kc.cn/schema/EJConvertor"
                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-               xsi:schemaLocation="http://www.ken.com/schema/EJConvertor EJConvertor.xsd">
+               xsi:schemaLocation="http://www.kc.cn/schema/EJConvertor EJConvertor.xsd">
 
-    <entity class=".cn.kc.graduation.wms.domain.Supplier" sheetName="供应商信息" 
+    <entity class="cn.kc.graduation.wms.domain.Supplier" sheetName="供应商信息"
             boldHeading="true">
         <property>
             <field>name</field>

@@ -1,18 +1,14 @@
 package cn.kc.graduation.wms.common.service.Impl;
 
+import cn.kc.graduation.wms.common.service.Interface.StockRecordManageService;
+import cn.kc.graduation.wms.common.service.Interface.StorageManageService;
 import cn.kc.graduation.wms.dao.*;
+import cn.kc.graduation.wms.domain.*;
 import cn.kc.graduation.wms.exception.StockRecordManageServiceException;
 import cn.kc.graduation.wms.exception.StorageManageServiceException;
 import cn.kc.graduation.wms.util.aop.UserOperation;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.ken.wms.common.service.Interface.StockRecordManageService;
-import com.ken.wms.common.service.Interface.StorageManageService;
-import com.ken.wms.dao.*;
-import com.ken.wms.domain.*;
-import com.ken.wms.exception.StockRecordManageServiceException;
-import com.ken.wms.exception.StorageManageServiceException;
-import com.ken.wms.util.aop.UserOperation;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.exceptions.PersistenceException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,7 +48,7 @@ public class StockRecordManageServiceImpl implements StockRecordManageService {
      */
     @UserOperation(value = "货物入库")
     @Override
-    public boolean stockInOperation(Integer supplierID, Integer goodsID, Integer repositoryID, long number, String personInCharge) throws StockRecordManageServiceException {
+    public boolean stockInOperation(Long supplierID, Long goodsID, Long repositoryID, long number, String personInCharge) throws StockRecordManageServiceException {
 
         // ID对应的记录是否存在
         if (!(supplierValidate(supplierID) && goodsValidate(goodsID) && repositoryValidate(repositoryID)))
@@ -99,7 +95,7 @@ public class StockRecordManageServiceImpl implements StockRecordManageService {
      */
     @UserOperation(value = "货物出库")
     @Override
-    public boolean stockOutOperation(Integer customerID, Integer goodsID, Integer repositoryID, long number, String personInCharge) throws StockRecordManageServiceException {
+    public boolean stockOutOperation(Long customerID, Long goodsID, Long repositoryID, long number, String personInCharge) throws StockRecordManageServiceException {
 
         // 检查ID对应的记录是否存在
         if (!(customerValidate(customerID) && goodsValidate(goodsID) && repositoryValidate(repositoryID)))
@@ -142,7 +138,7 @@ public class StockRecordManageServiceImpl implements StockRecordManageService {
      * @return 结果的一个Map，其中： key为 data 的代表记录数据；key 为 total 代表结果记录的数量
      */
     @Override
-    public Map<String, Object> selectStockRecord(Integer repositoryID, String startDateStr, String endDateStr, String searchType) throws StockRecordManageServiceException {
+    public Map<String, Object> selectStockRecord(Long repositoryID, String startDateStr, String endDateStr, String searchType) throws StockRecordManageServiceException {
         return selectStockRecord(repositoryID, startDateStr, endDateStr, searchType, -1, -1);
     }
 
@@ -159,7 +155,7 @@ public class StockRecordManageServiceImpl implements StockRecordManageService {
      */
     @SuppressWarnings("unchecked")
     @Override
-    public Map<String, Object> selectStockRecord(Integer repositoryID, String startDateStr, String endDateStr, String searchType, int offset, int limit) throws StockRecordManageServiceException {
+    public Map<String, Object> selectStockRecord(Long repositoryID, String startDateStr, String endDateStr, String searchType, int offset, int limit) throws StockRecordManageServiceException {
         // 初始化结果集
         Map<String, Object> resultSet = new HashMap<>();
         long total = 0;
@@ -263,7 +259,7 @@ public class StockRecordManageServiceImpl implements StockRecordManageService {
      * @param limit        分页大小
      * @return 返回所有符合要求的入库记录
      */
-    private Map<String, Object> selectStockInRecord(Integer repositoryID, Date startDate, Date endDate, int offset, int limit) throws StockRecordManageServiceException {
+    private Map<String, Object> selectStockInRecord(Long repositoryID, Date startDate, Date endDate, int offset, int limit) throws StockRecordManageServiceException {
         Map<String, Object> result = new HashMap<>();
         List<StockInDO> stockInRecords;
         long stockInTotal = 0;
@@ -308,7 +304,7 @@ public class StockRecordManageServiceImpl implements StockRecordManageService {
      * @param limit        分页大小
      * @return 返回所有符合要求的出库记录
      */
-    private Map<String, Object> selectStockOutRecord(Integer repositoryID, Date startDate, Date endDate, int offset, int limit) throws StockRecordManageServiceException {
+    private Map<String, Object> selectStockOutRecord(Long repositoryID, Date startDate, Date endDate, int offset, int limit) throws StockRecordManageServiceException {
         Map<String, Object> result = new HashMap<>();
         List<StockOutDO> stockOutRecords;
         long stockOutRecordTotal = 0;
@@ -390,7 +386,7 @@ public class StockRecordManageServiceImpl implements StockRecordManageService {
      * @param goodsID 货物ID
      * @return 若存在则返回true，否则返回false
      */
-    private boolean goodsValidate(Integer goodsID) throws StockRecordManageServiceException {
+    private boolean goodsValidate(Long goodsID) throws StockRecordManageServiceException {
         try {
             Goods goods = goodsMapper.selectById(goodsID);
             return goods != null;
@@ -405,7 +401,7 @@ public class StockRecordManageServiceImpl implements StockRecordManageService {
      * @param repositoryID 仓库ID
      * @return 若存在则返回true，否则返回false
      */
-    private boolean repositoryValidate(Integer repositoryID) throws StockRecordManageServiceException {
+    private boolean repositoryValidate(Long repositoryID) throws StockRecordManageServiceException {
         try {
             Repository repository = repositoryMapper.selectByID(repositoryID);
             return repository != null;
@@ -420,7 +416,7 @@ public class StockRecordManageServiceImpl implements StockRecordManageService {
      * @param supplierID 供应商ID
      * @return 若存在则返回true，否则返回false
      */
-    private boolean supplierValidate(Integer supplierID) throws StockRecordManageServiceException {
+    private boolean supplierValidate(Long supplierID) throws StockRecordManageServiceException {
         try {
             Supplier supplier = supplierMapper.selectById(supplierID);
             return supplier != null;
@@ -435,7 +431,7 @@ public class StockRecordManageServiceImpl implements StockRecordManageService {
      * @param cumtomerID 客户ID
      * @return 若存在则返回true，否则返回false
      */
-    private boolean customerValidate(Integer cumtomerID) throws StockRecordManageServiceException {
+    private boolean customerValidate(Long cumtomerID) throws StockRecordManageServiceException {
         try {
             Customer customer = customerMapper.selectById(cumtomerID);
             return customer != null;

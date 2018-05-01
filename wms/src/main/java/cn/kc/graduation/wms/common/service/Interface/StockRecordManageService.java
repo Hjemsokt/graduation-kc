@@ -19,7 +19,7 @@ public interface StockRecordManageService {
      * @param number       入库数量
      * @return 返回一个boolean 值，若值为true表示入库成功，否则表示入库失败
      */
-    boolean stockInOperation(Integer supplierID, Integer goodsID, Integer repositoryID, long number, String personInCharge) throws StockRecordManageServiceException;
+    boolean stockInOperation(Long supplierID, Long goodsID, Long repositoryID, long number, String personInCharge) throws StockRecordManageServiceException;
 
     /**
      * 货物出库操作
@@ -30,7 +30,7 @@ public interface StockRecordManageService {
      * @param number       出库数量
      * @return 返回一个boolean值，若值为true表示出库成功，否则表示出库失败
      */
-    boolean stockOutOperation(Integer customerID, Integer goodsID, Integer repositoryID, long number, String personInCharge) throws StockRecordManageServiceException;
+    boolean stockOutOperation(Long customerID, Long goodsID, Long repositoryID, long number, String personInCharge) throws StockRecordManageServiceException;
 
     /**
      * 查询出入库记录
@@ -41,7 +41,7 @@ public interface StockRecordManageService {
      * @param searchType   记录查询方式
      * @return 结果的一个Map，其中： key为 data 的代表记录数据；key 为 total 代表结果记录的数量
      */
-    Map<String, Object> selectStockRecord(Integer repositoryID, String startDateStr, String endDateStr, String searchType) throws StockRecordManageServiceException;
+    Map<String, Object> selectStockRecord(Long repositoryID, String startDateStr, String endDateStr, String searchType) throws StockRecordManageServiceException;
 
     /**
      * 分页查询出入库记录
@@ -54,5 +54,5 @@ public interface StockRecordManageService {
      * @param limit        分页大小
      * @return 结果的一个Map，其中： key为 data 的代表记录数据；key 为 total 代表结果记录的数量
      */
-    Map<String, Object> selectStockRecord(Integer repositoryID, String startDateStr, String endDateStr, String searchType, int offset, int limit) throws StockRecordManageServiceException;
+    Map<String, Object> selectStockRecord(Long repositoryID, String startDateStr, String endDateStr, String searchType, int offset, int limit) throws StockRecordManageServiceException;
 }

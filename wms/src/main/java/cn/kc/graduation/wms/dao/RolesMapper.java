@@ -1,9 +1,6 @@
 package cn.kc.graduation.wms.dao;
 
 /**
- *
-
- * @since 2017/3/1.
  */
 public interface RolesMapper {
 
@@ -12,6 +9,6 @@ public interface RolesMapper {
      * @param roleName 角色名
      * @return 返回角色的ID
      */
-    Integer getRoleID(String roleName);
+    Long getRoleID(String roleName);
 
 }

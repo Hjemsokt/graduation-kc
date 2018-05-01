@@ -4,24 +4,21 @@ import java.io.Serializable;
 
 /**
  * 供应商信息
- * 
-
- *
  */
 public class Supplier implements Serializable {
 
-	private Integer id;// 供应商ID
+	private Long id;// 供应商ID
 	private String name;// 供应商名
 	private String personInCharge;// 负责人
 	private String tel;// 联系电话
 	private String email;// 电子邮件
 	private String address;// 供应商地址
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

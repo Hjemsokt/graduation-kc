@@ -33,5 +33,6 @@ public class MyBatisUtil {
 		SqlSession session = MyBatisUtil.getSession();
 		System.out.println(session);
 		session.close();
+		System.out.println(session);
 	}
 }

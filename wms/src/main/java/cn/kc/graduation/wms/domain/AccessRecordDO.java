@@ -5,9 +5,7 @@ import java.util.Date;
 
 /**
  * 用户登入登出记录
- *
 
- * @since 2017/3/5.
  */
 public class AccessRecordDO implements Serializable {
 
@@ -15,12 +13,12 @@ public class AccessRecordDO implements Serializable {
      * 登入登出记录ID
      * 仅当该记录从数据库取出时有效
      */
-    private Integer id;
+    private Long id;
 
     /**
      * 登陆用户ID
      */
-    private Integer userID;
+    private Long userID;
 
     /**
      * 登陆用户名
@@ -42,11 +40,11 @@ public class AccessRecordDO implements Serializable {
      */
     private String accessIP;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public Integer getUserID() {
+    public Long getUserID() {
         return userID;
     }
 
@@ -66,11 +64,11 @@ public class AccessRecordDO implements Serializable {
         return accessTime;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public void setUserID(Integer userID) {
+    public void setUserID(Long userID) {
         this.userID = userID;
     }
 

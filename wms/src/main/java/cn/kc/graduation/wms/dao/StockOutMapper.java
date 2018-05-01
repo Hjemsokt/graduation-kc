@@ -1,6 +1,6 @@
 package cn.kc.graduation.wms.dao;
 
-import com.ken.wms.domain.StockOutDO;
+import cn.kc.graduation.wms.domain.StockOutDO;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.Date;
@@ -8,7 +8,6 @@ import java.util.List;
 
 /**
  * 出库记录 映射器
- *
 
  */
 public interface StockOutMapper {
@@ -26,7 +25,7 @@ public interface StockOutMapper {
      * @param customerId 指定的客户ID
      * @return 返回指定客户相关的出库记录
      */
-    List<StockOutDO> selectByCustomerId(Integer customerId);
+    List<StockOutDO> selectByCustomerId(Long customerId);
 
     /**
      * 选择指定货物ID相关的出库记录
@@ -34,7 +33,7 @@ public interface StockOutMapper {
      * @param goodId 指定的货物ID
      * @return 返回指定货物ID相关的出库记录
      */
-    List<StockOutDO> selectByGoodId(Integer goodId);
+    List<StockOutDO> selectByGoodId(Long goodId);
 
     /**
      * 选择指定仓库ID关联的出库记录
@@ -42,7 +41,7 @@ public interface StockOutMapper {
      * @param repositoryID 指定的仓库ID
      * @return 返回指定仓库ID相关的出库记录
      */
-    List<StockOutDO> selectByRepositoryID(Integer repositoryID);
+    List<StockOutDO> selectByRepositoryID(Long repositoryID);
 
     /**
      * 选择指定仓库ID以及指定日期范围内的出库记录
@@ -52,9 +51,9 @@ public interface StockOutMapper {
      * @param endDate      记录结束日期
      * @return 返回所有符合指定要求的出库记录
      */
-    List<StockOutDO> selectByRepositoryIDAndDate(@Param("repositoryID") Integer repositoryID,
-                                                 @Param("startDate") Date startDate,
-                                                 @Param("endDate") Date endDate);
+    List<StockOutDO> selectByRepositoryIDAndDate(@Param("repositoryID") Long repositoryID,
+												 @Param("startDate") Date startDate,
+												 @Param("endDate") Date endDate);
 
     /**
      * 选择指定ID的出库记录
@@ -62,7 +61,7 @@ public interface StockOutMapper {
      * @param id 指定的出库记录ID
      * @return 返回指定ID的出库记录
      */
-    StockOutDO selectById(Integer id);
+    StockOutDO selectById(Long id);
 
     /**
      * 插入一条新的出库记录
@@ -83,5 +82,5 @@ public interface StockOutMapper {
      *
      * @param id 指定的出库记录ID
      */
-    void deleteById(Integer id);
+    void deleteById(Long id);
 }

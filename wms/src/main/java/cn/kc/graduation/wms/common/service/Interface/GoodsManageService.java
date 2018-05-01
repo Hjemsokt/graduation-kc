@@ -22,7 +22,7 @@ public interface GoodsManageService {
      * @param goodsId 货物ID
      * @return 结果的一个Map，其中： key为 data 的代表记录数据；key 为 total 代表结果记录的数量
      */
-    Map<String, Object> selectById(Integer goodsId) throws GoodsManageServiceException;
+    Map<String, Object> selectById(Long goodsId) throws GoodsManageServiceException;
 
     /**
      * 返回指定 goods name 的货物记录
@@ -82,7 +82,7 @@ public interface GoodsManageService {
      * @param goodsId 货物ID
      * @return 返回一个boolean值，值为true代表更新成功，否则代表失败
      */
-    boolean deleteGoods(Integer goodsId) throws GoodsManageServiceException;
+    boolean deleteGoods(Long goodsId) throws GoodsManageServiceException;
 
     /**
      * 从文件中导入货物信息

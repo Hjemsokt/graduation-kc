@@ -2,9 +2,6 @@ package cn.kc.graduation.wms.exception;
 
 /**
  * StorageManageServiceException异常
- *
-
- * @since 2017/3/8.
  */
 public class StorageManageServiceException extends BusinessException {
 

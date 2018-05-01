@@ -27,7 +27,6 @@ import java.util.Map;
 
 /**
  * 客户信息管理 service 实现类
- *
 
  */
 @Service
@@ -47,7 +46,7 @@ public class CustomerManageServiceImpl implements CustomerManageService {
      * @return 结果的一个Map，其中： key为 data 的代表记录数据；key 为 total 代表结果记录的数量
      */
     @Override
-    public Map<String, Object> selectById(Integer customerId) throws CustomerManageServiceException {
+    public Map<String, Object> selectById(Long customerId) throws CustomerManageServiceException {
         // 初始化结果集
         Map<String, Object> resultSet = new HashMap<>();
         List<Customer> customers = new ArrayList<>();
@@ -260,7 +259,7 @@ public class CustomerManageServiceImpl implements CustomerManageService {
      */
     @UserOperation(value = "删除客户信息")
     @Override
-    public boolean deleteCustomer(Integer customerId) throws CustomerManageServiceException {
+    public boolean deleteCustomer(Long customerId) throws CustomerManageServiceException {
 
         try {
             // 查询该客户是否有出库记录
