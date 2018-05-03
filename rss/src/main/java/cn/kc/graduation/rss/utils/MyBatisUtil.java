@@ -9,20 +9,29 @@ import java.io.InputStream;
 
 public class MyBatisUtil {
 	private static final String configFile = "mybatis-config.xml";
+	private static SqlSessionFactory factory;
+
+	 static  {
+		try {
+			InputStream is = Resources.getResourceAsStream(configFile);
+			factory = new SqlSessionFactoryBuilder().build(is);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	/**
 	 * 创建连接
 	 */
 	public static SqlSession getSession() {
-		SqlSession session = null;
-		try {
-			InputStream is = Resources.getResourceAsStream(configFile);
-			SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(is);
-			session = factory.openSession();
-		} catch (Exception e) {
-			e.printStackTrace();
+		while (true) {
+			try {
+				return factory.openSession( true);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
-		return session;
+
 	}
 
 	public static void closeSession(SqlSession session) {

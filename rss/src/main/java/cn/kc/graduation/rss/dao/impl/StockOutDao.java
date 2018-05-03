@@ -15,7 +15,7 @@ import java.util.Map;
 public class StockOutDao implements IStockOutDao {
 	private static final String namespace = "cn.kc.graduation.rss.dao" +
 			".IStockOutDao.";
-	private static final SqlSession session = MyBatisUtil.getSession();
+	private static SqlSession session;
 	private Logger logger = Logger.getLogger(StockOutDao.class.getName());
 
 	/**
@@ -30,6 +30,7 @@ public class StockOutDao implements IStockOutDao {
 	@Override
 	public boolean stockOut(long goodsID, long repositoryID, long number,
 							long customerID) {
+		session = MyBatisUtil.getSession();
 
 		// 更新库存记录
 		int affectRecords;

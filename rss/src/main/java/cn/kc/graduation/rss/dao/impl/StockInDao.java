@@ -17,7 +17,7 @@ public class StockInDao implements IStockInDao {
 	private Logger logger = Logger.getLogger(StockInDO.class.getName());
 	private static final String namespace = "cn.kc.graduation.rss.dao" +
 			".IStockInDao.";
-	private static final SqlSession session = MyBatisUtil.getSession();
+	private static SqlSession session ;
 
 	/**
 	 * 货物入库操作
@@ -36,6 +36,7 @@ public class StockInDao implements IStockInDao {
 	public boolean stockIn(long supplierID, long goodsID, String name,
 				String type, String size, double value,
 		long repositoryID, long number) {
+		session = MyBatisUtil.getSession();
 
 		// 检查入库数量有效性
 		if (number < 0) {
@@ -109,7 +110,7 @@ public class StockInDao implements IStockInDao {
 		List<Goods> a = session.selectList(namespace + "selectGoodsById",
 				goodsID);
 		boolean ret = null == a || a.isEmpty() ;
-		logger.debug("good validate (" +  ret + ")");
+		logger.debug("good isExist (" +  !ret + ")");
 		return !ret;
 	}
 

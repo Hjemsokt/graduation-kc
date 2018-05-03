@@ -9,9 +9,9 @@ public class TCPTest {
 		MsgServer msgServer =  new MsgServer();
 		Thread serverThread = new Thread(msgServer);
 		serverThread.start();
-		Thread.sleep(5000l);
-		SendMsg sendMsg = new SendMsg();
-		Thread sendThread = new Thread(sendMsg);
-		sendThread.start();
+//		Thread.sleep(5000l);
+//		SendMsg sendMsg = new SendMsg();
+//		Thread sendThread = new Thread(sendMsg);
+//		sendThread.start();
 	}
 }

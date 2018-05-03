@@ -1,5 +1,10 @@
 package cn.kc.graduation.rss.client;
 
+import cn.kc.graduation.rss.model.Record;
+import cn.kc.graduation.rss.model.StockInDO;
+import cn.kc.graduation.rss.model.StockType;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
@@ -18,15 +23,26 @@ public class SendMsg implements Runnable {
 			byte buffer[] = new byte[4 * 1024];
 			int temp = 0;
 			// 循环读取文件
-			for (int i =100; i < 200l; i++){
+			ObjectMapper mapper = new ObjectMapper();
+
+			for (int i =0; i < 200l; i++){
 				Thread.sleep(10);
 				OutputStream outputStream = socket.getOutputStream();
-
-				String msg = new StringBuilder("gzc").append(i)
-						.append("^2018").append(i).append("\r\n").toString();
-				outputStream.write(msg.getBytes());
+				Record record =  new Record();
+				record.setStockType(StockType.In);
+				record.setId(105l);
+				record.setName("精酿苹果醋");
+				record.setType("饮料");
+				record.setSize("312ml");
+				record.setRepositoryID(1004l);
+				record.setNumber(100l);
+				record.setSupplierID(1015l);
+				record.setValue(300d);
+				String json = mapper.writeValueAsString(record);
+				outputStream.write(json.getBytes());
 				// 发送读取的数据到服务端
 				outputStream.flush();
+				Thread.sleep(1000);
 			}
 
 
